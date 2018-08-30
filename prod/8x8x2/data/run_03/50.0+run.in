@@ -1,0 +1,41 @@
+# Fin dminimud floating point parameter in input script or data file (../fix_nh.cpp:132)energy for Beryl
+
+#----- Initialize Simulation -----
+clear
+units 		metal
+boundary 	p p p
+atom_style 	full
+bond_style	none
+variable	etol equal 1e-25
+variable 	ftol equal 1e-25
+variable 	maxiter equal 5000
+variable 	maxeval equal 10000
+variable	probeTemp equal 50.0
+
+#----- Create Atoms -----
+read_data 	data.mod
+replicate 	8 8 2	
+
+#----- Define Interatomic Potential -----
+include 	potential.mod
+#------ Define Settings -----
+
+# ----- Run Minimization -----
+#minimize	1e-25 1e-25 5000 10000 # Performs actual minimization
+
+#include		calcLatticeParams.mod
+
+reset_timestep	0
+timestep	0.001
+velocity       	all create ${probeTemp} 87287 loop geom
+fix		1 all npt temp ${probeTemp} ${probeTemp} 0.1 iso 1.013 1.013 5.0 
+run		1000 # Warmup
+
+reset_timestep	0
+fix		2 all ave/time 1 1 100 c_thermo_temp c_thermo_pe c_thermo_press v_myVol v_myCella v_myCellb v_myCellc v_myCellgamma file rawTemp${probeTemp}.dat # Potential energy, parameters, volume 
+run 		1000000
+unfix		2
+variable	probeTemp delete
+
+print		" "
+print		"All done!"

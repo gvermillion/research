@@ -1,0 +1,1 @@
+/work/gcates/research/prod/8x8x2/run.sh: line 5: 45506 Illegal instruction     (core dumped) /group/allatom/lammps/source/src/lmp_ompi_g++ < $1+run.in

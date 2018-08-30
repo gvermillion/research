@@ -1,0 +1,232 @@
+000 (017.000.000) 08/15 14:12:57 Job submitted from host: <129.69.120.173:10625?addrs=129.69.120.173-10625>
+...
+000 (017.001.000) 08/15 14:12:57 Job submitted from host: <129.69.120.173:10625?addrs=129.69.120.173-10625>
+...
+000 (017.002.000) 08/15 14:12:57 Job submitted from host: <129.69.120.173:10625?addrs=129.69.120.173-10625>
+...
+000 (017.003.000) 08/15 14:12:57 Job submitted from host: <129.69.120.173:10625?addrs=129.69.120.173-10625>
+...
+000 (017.004.000) 08/15 14:12:57 Job submitted from host: <129.69.120.173:10625?addrs=129.69.120.173-10625>
+...
+000 (017.005.000) 08/15 14:12:57 Job submitted from host: <129.69.120.173:10625?addrs=129.69.120.173-10625>
+...
+000 (017.006.000) 08/15 14:12:57 Job submitted from host: <129.69.120.173:10625?addrs=129.69.120.173-10625>
+...
+000 (017.007.000) 08/15 14:12:57 Job submitted from host: <129.69.120.173:10625?addrs=129.69.120.173-10625>
+...
+000 (017.008.000) 08/15 14:12:57 Job submitted from host: <129.69.120.173:10625?addrs=129.69.120.173-10625>
+...
+000 (017.009.000) 08/15 14:12:57 Job submitted from host: <129.69.120.173:10625?addrs=129.69.120.173-10625>
+...
+001 (017.001.000) 08/15 14:13:10 Job executing on host: <129.69.120.195:44449?addrs=129.69.120.195-44449>
+...
+001 (017.002.000) 08/15 14:13:10 Job executing on host: <129.69.120.189:42176?addrs=129.69.120.189-42176>
+...
+001 (017.006.000) 08/15 14:13:10 Job executing on host: <129.69.120.186:20549?addrs=129.69.120.186-20549>
+...
+001 (017.003.000) 08/15 14:13:10 Job executing on host: <129.69.120.188:34234?addrs=129.69.120.188-34234>
+...
+001 (017.004.000) 08/15 14:13:10 Job executing on host: <129.69.120.190:51391?addrs=129.69.120.190-51391>
+...
+001 (017.005.000) 08/15 14:13:10 Job executing on host: <129.69.120.185:56902?addrs=129.69.120.185-56902>
+...
+001 (017.000.000) 08/15 14:13:10 Job executing on host: <129.69.120.56:7528?addrs=129.69.120.56-7528>
+...
+001 (017.009.000) 08/15 14:13:10 Job executing on host: <129.69.120.185:56902?addrs=129.69.120.185-56902>
+...
+001 (017.008.000) 08/15 14:13:10 Job executing on host: <129.69.120.190:51391?addrs=129.69.120.190-51391>
+...
+001 (017.007.000) 08/15 14:13:10 Job executing on host: <129.69.120.56:7528?addrs=129.69.120.56-7528>
+...
+006 (017.000.000) 08/15 14:13:11 Image size of job updated: 1
+	0  -  MemoryUsage of job (MB)
+	0  -  ResidentSetSize of job (KB)
+...
+006 (017.007.000) 08/15 14:13:11 Image size of job updated: 1
+	0  -  MemoryUsage of job (MB)
+	0  -  ResidentSetSize of job (KB)
+...
+005 (017.000.000) 08/15 14:13:11 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :        1        1    184404
+	   Gpus                 :                           1
+	   Memory (MB)          :        0        1         1
+...
+005 (017.007.000) 08/15 14:13:11 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :        1        1    184404
+	   Gpus                 :                           1
+	   Memory (MB)          :        0        1         1
+...
+006 (017.006.000) 08/15 14:13:12 Image size of job updated: 348112
+	0  -  MemoryUsage of job (MB)
+	0  -  ResidentSetSize of job (KB)
+...
+006 (017.002.000) 08/15 14:13:12 Image size of job updated: 348112
+	0  -  MemoryUsage of job (MB)
+	0  -  ResidentSetSize of job (KB)
+...
+004 (017.006.000) 08/15 14:13:12 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:00:01, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :        1        1    169837
+	   Gpus                 :                           0
+	   Memory (MB)          :        0        1         1
+...
+004 (017.002.000) 08/15 14:13:12 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:00:01, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :        1        1    165102
+	   Gpus                 :                           0
+	   Memory (MB)          :        0        1         1
+...
+006 (017.001.000) 08/15 14:13:12 Image size of job updated: 378608
+	0  -  MemoryUsage of job (MB)
+	0  -  ResidentSetSize of job (KB)
+...
+006 (017.004.000) 08/15 14:13:12 Image size of job updated: 378608
+	0  -  MemoryUsage of job (MB)
+	0  -  ResidentSetSize of job (KB)
+...
+004 (017.001.000) 08/15 14:13:12 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:00:01, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :        1        1    169291
+	   Gpus                 :                           0
+	   Memory (MB)          :        0        1         1
+...
+004 (017.004.000) 08/15 14:13:12 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:00:01, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :        1        1    164920
+	   Gpus                 :                           0
+	   Memory (MB)          :        0        1         1
+...
+006 (017.008.000) 08/15 14:13:12 Image size of job updated: 348112
+	0  -  MemoryUsage of job (MB)
+	0  -  ResidentSetSize of job (KB)
+...
+006 (017.003.000) 08/15 14:13:12 Image size of job updated: 348112
+	0  -  MemoryUsage of job (MB)
+	0  -  ResidentSetSize of job (KB)
+...
+004 (017.008.000) 08/15 14:13:12 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:00:01, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :        1        1    164920
+	   Gpus                 :                           0
+	   Memory (MB)          :        0        1         1
+...
+004 (017.003.000) 08/15 14:13:12 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:00:01, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :        1        1    168947
+	   Gpus                 :                           0
+	   Memory (MB)          :        0        1         1
+...
+006 (017.009.000) 08/15 14:13:12 Image size of job updated: 348112
+	0  -  MemoryUsage of job (MB)
+	0  -  ResidentSetSize of job (KB)
+...
+004 (017.009.000) 08/15 14:13:12 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:00:01, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :        1        1    170407
+	   Gpus                 :                           0
+	   Memory (MB)          :        0        1         1
+...
+006 (017.005.000) 08/15 14:13:12 Image size of job updated: 378608
+	0  -  MemoryUsage of job (MB)
+	0  -  ResidentSetSize of job (KB)
+...
+004 (017.005.000) 08/15 14:13:12 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:00:01, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :        1        1    170407
+	   Gpus                 :                           0
+	   Memory (MB)          :        0        1         1
+...
+009 (017.004.000) 08/15 14:13:12 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (017.001.000) 08/15 14:13:12 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (017.002.000) 08/15 14:13:12 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (017.003.000) 08/15 14:13:12 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (017.006.000) 08/15 14:13:12 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (017.008.000) 08/15 14:13:12 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (017.009.000) 08/15 14:13:12 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (017.005.000) 08/15 14:13:12 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...

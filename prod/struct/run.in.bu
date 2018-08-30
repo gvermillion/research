@@ -1,0 +1,24 @@
+# Fin dminimud floating point parameter in input script or data file (../fix_nh.cpp:132)energy for Beryl
+
+#----- Initialize Simulation -----
+clear
+units 		metal
+boundary 	p p p
+atom_style 	full
+bond_style	none
+variable	etol equal 1e-25
+variable 	ftol equal 1e-25
+variable 	maxiter equal 5000
+variable 	maxeval equal 10000
+
+#----- Create Atoms -----
+read_data 	data.mod
+#replicate 	8 8 2	
+
+#----- Define Interatomic Potential -----
+include 	potential.mod
+#------ Define Settings -----
+
+# ----- Run Minimization -----
+dump myreport all custom 1 in.myreport id x y z 
+minimize	1e-25 1e-25 5000 10000 # Performs actual minimization
