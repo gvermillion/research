@@ -1,0 +1,45 @@
+# Find minimum energy for Beryl
+
+#----- Initialize Simulation -----
+clear
+units 		metal
+boundary 	p p p
+atom_style 	full
+bond_style	none
+variable	etol equal 1e-25
+variable 	ftol equal 1e-25
+variable 	maxiter equal 5000
+variable 	maxeval equal 10000
+
+#----- Create Atoms -----
+read_data 	beryl_water_100.mod
+replicate 	1  1  1
+
+#----- Define Interatomic Potential -----
+include		potential_main.mod
+include 	potential_beryl.mod
+include 	potential_water.mod
+
+#------ Define Settings -----
+
+# ----- Run Minimization -----
+
+fix BRX all box/relax iso 1.013
+
+dump MIN all custom 1 min.lammpstrj id type element x y z ix iy iz
+
+minimize	1e-6 1e-6 5000 10000 # Performs actual minimization
+undump MIN
+
+reset_timestep	0
+timestep 0.0001
+
+velocity        all create 300.0 87287 loop geom
+fix		1 all npt temp 300.0 30.0 .1 iso 1.013 1.013 1.0
+
+dump TRJ all custom 1 dump.lammpstrj id type element x y z ix iy iz
+dump_modify TRJ sort 1 element Be Al Si O H O
+
+run 		10000
+print		" "
+print		"All done!"
