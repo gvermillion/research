@@ -52,7 +52,7 @@ def readFile(filename):
 	return ts, temps, pes, presss, vols, cellas, cellbs, cellcs, cellgammas 
 
 def writeToFile(data):
-	with open("analyzedData.dat", "ab") as dataFile:
+	with open("{}/analyzedData.dat".format(data_dir), "wb") as dataFile:
 		print("\t Writing data to {}".format(dataFile))
 		pickle.dump(data,dataFile)
 		
@@ -110,6 +110,7 @@ def performBinningAnalysis(O):
 # MAIN
 
 data_dir = validateInput()
+data = []
 # Cycle through files in /data dir
 for root, dirs, files in os.walk(data_dir):
 	for fil in files:
@@ -127,7 +128,10 @@ for root, dirs, files in os.walk(data_dir):
 			cellbData = performBinningAnalysis(cellbs)
 			cellcData = performBinningAnalysis(cellcs)
 			cellgammaData = performBinningAnalysis(cellgammas)
-			writeToFile([targetTemp,tempData,peData,pressData,volData,cellaData,cellbData,cellcData,cellgammaData])
+			#writeToFile([targetTemp,tempData,peData,pressData,volData,cellaData,cellbData,cellcData,cellgammaData])
+			data.append([targetTemp,tempData,peData,pressData,volData,cellaData,cellbData,cellcData,cellgammaData,temps,pes,presss,vols])
 			
 		else:
 			print("Skip")
+data.sort()
+writeToFile(data)
