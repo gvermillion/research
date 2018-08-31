@@ -10,7 +10,7 @@ variable	etol equal 1e-25
 variable 	ftol equal 1e-25
 variable 	maxiter equal 5000
 variable 	maxeval equal 10000
-variable	probeTemp equal PROBETEMP
+variable	probeTemp equal 1200
 
 #----- Create Atoms -----
 read_data 	beryl_water_025.mod
