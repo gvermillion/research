@@ -1,0 +1,251 @@
+LAMMPS (16 Mar 2018)
+# Fin dminimud floating point parameter in input script or data file (../fix_nh.cpp:132)energy for Beryl
+
+#----- Initialize Simulation -----
+clear
+units 		metal
+boundary 	p p p
+atom_style 	full
+bond_style	none
+variable	etol equal 1e-25
+variable 	ftol equal 1e-25
+variable 	maxiter equal 5000
+variable 	maxeval equal 10000
+variable	probeTemp equal 1100
+
+#----- Create Atoms -----
+read_data 	beryl_water_025.mod
+  triclinic box = (0 0 0) to (9.208 7.97436 18.376) with tilt (-4.604 0 0)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  119 atoms
+  scanning bonds ...
+  2 = max bonds/atom
+  scanning angles ...
+  1 = max angles/atom
+  reading bonds ...
+  2 bonds
+  reading angles ...
+  1 angles
+  2 = max # of 1-2 neighbors
+  1 = max # of 1-3 neighbors
+  1 = max # of 1-4 neighbors
+  2 = max # of special neighbors
+replicate 	8 8 2
+  triclinic box = (0 0 0) to (73.664 63.7949 36.752) with tilt (-36.832 0 0)
+  1 by 1 by 1 MPI processor grid
+  15232 atoms
+  256 bonds
+  128 angles
+  2 = max # of 1-2 neighbors
+  1 = max # of 1-3 neighbors
+  1 = max # of 1-4 neighbors
+  2 = max # of special neighbors
+  Time spent = 0.00584722 secs
+
+#----- Define Interatomic Potential -----
+include 	potential_main.mod
+kspace_style 	pppm 1.0e-4
+
+# Neighbor Style
+neighbor	0.3 bin
+neigh_modify	delay 0 every 1 check yes
+
+# Minimization style
+min_style	cg
+
+# Setup Output
+thermo		10
+thermo_style	custom	step temp vol cella cellb cellc cellgamma pxx pyy pzz pxy pxz pyz lx ly lz press pe #c_eatoms
+thermo_modify	norm no
+variable 	myVol equal vol
+variable	myCella equal cella
+variable	myCellb equal cellb
+variable	myCellc equal cellc
+variable	myCellgamma equal cellgamma
+include 	potential_beryl.mod
+# Potential Paramters
+pair_style 	hybrid/overlay morse 5.5 buck 5.5 lj/cut/coul/long 5.5 15.0
+pair_coeff    1    1 morse     		  0 	       0           0  # Be Be
+pair_coeff    1    1 buck                 0            1           -201.0
+pair_coeff    1    1 lj/cut/coul/long	  10120.	0.413
+pair_coeff    1    2 morse     		  0 	       0           0  # Be Al
+pair_coeff    1    2 buck                 0            1           0
+pair_coeff    1    2 lj/cut/coul/long	  0	       0
+pair_coeff    1    3 morse     		  0 	       0           0  # Al Si
+pair_coeff    1    3 buck                 0            1           0
+pair_coeff    1    3 lj/cut/coul/long	  0	       0
+pair_coeff    1    4 morse 		  0.239919     2.527420    1.815405	#Be O
+pair_coeff    1    4 buck                 0.000000     1.000000   -46.00000
+pair_coeff    1    4 lj/cut/coul/long     529.000      0.528
+pair_coeff    2    2 morse     		  0 	       0           0  # Al Al
+pair_coeff    2    2 buck                 0            1           -492.
+pair_coeff    2    2 lj/cut/coul/long	  60423		0.356
+pair_coeff    2    3 morse     		  0 	       0           0  # Al si
+pair_coeff    2    3 buck                 0            1           0
+pair_coeff    2    3 lj/cut/coul/long	  0	       0
+pair_coeff    2    4 morse 		  0.361581     1.900442    2.164818	#Al O
+pair_coeff    2    4 buck                 0.000000     1.000000   -71.5
+pair_coeff    2    4 lj/cut/coul/long     1420.0	0.482
+pair_coeff    3    3 morse     		  0 	       0           0  # Si Si
+pair_coeff    3    3 buck                 0            1           -282.
+pair_coeff    3    3 lj/cut/coul/long	  19730		0.391
+pair_coeff    3    4 morse 		  0.340554     2.006700    2.100000	#Si O
+pair_coeff    3    4 buck                 0.000000     1.000000   -60.5
+pair_coeff    3    4 lj/cut/coul/long     916.		0.504
+pair_coeff    4    4 morse     		  0.042395     1.379316    3.618701  # O O
+pair_coeff    4    4 buck                 0.000000     1.000000   -16.7
+pair_coeff    4    4 lj/cut/coul/long	  3.16		1.05
+include 	potential_water.mod
+# Potential Paramters
+
+pair_coeff    1    6 morse     		  0. 	       0.           0.  		# Ow Be
+pair_coeff    1    6 buck                 0            1           -354.5
+pair_coeff    1    6 lj/cut/coul/long	  39.637	1.1435
+pair_coeff    2    6 morse     		  0 	       0           0  		# Ow Al
+pair_coeff    2    6 buck                 0            1           -554.6
+pair_coeff    2    6 lj/cut/coul/long	  96.854	1.0616
+pair_coeff    3    6 morse     		  0 	       0           0  		# Ow Si
+pair_coeff    3    6 buck                 0            1           -419.9
+pair_coeff    3    6 lj/cut/coul/long	  55.345	1.1126
+pair_coeff    4    6 morse     		  0 	       0           0  		# Ow O
+pair_coeff    4    6 buck                 0            1           -102.9
+pair_coeff    4    6 lj/cut/coul/long	  0.70042	1.8233
+pair_coeff    5    6 morse     		  0 	       0           0  # Hw Hw
+pair_coeff    5    6 buck                 0            1           0
+pair_coeff    5    6 lj/cut/coul/long	  0.000	      0.0
+pair_coeff    6    6 morse     		  0 	       0           0  		# Ow Ow
+pair_coeff    6    6 buck                 0            1           -625.4
+pair_coeff    6    6 lj/cut/coul/long	  0.15525	3.166
+pair_coeff    1    5 morse     		  0 	       0           0  # Hw Hw
+pair_coeff    1    5 buck                 0            1           0
+pair_coeff    1    5 lj/cut/coul/long	  0.000	      0.0
+pair_coeff    2    5 morse     		  0 	       0           0  # Hw Hw
+pair_coeff    2    5 buck                 0            1           0
+pair_coeff    2    5 lj/cut/coul/long	  0.000	      0.0
+pair_coeff    3    5 morse     		  0 	       0           0  # Hw Hw
+pair_coeff    3    5 buck                 0            1           0
+pair_coeff    3    5 lj/cut/coul/long	  0.000	      0.0
+pair_coeff    4    5 morse     		  0 	       0           0  # Hw Hw
+pair_coeff    4    5 buck                 0            1           0
+pair_coeff    4    5 lj/cut/coul/long	  0.000	      0.0
+pair_coeff    5    5 morse     		  0 	       0           0  # Hw Hw
+pair_coeff    5    5 buck                 0            1           0
+pair_coeff    5    5 lj/cut/coul/long	  0.000	      0.0
+
+
+
+bond_style	harmonic
+angle_style	harmonic
+dihedral_style	none
+improper_style	none
+
+bond_coeff	1 1000.00 1.000
+angle_coeff	1 100.0 109.47
+
+
+#------ Define Settings -----
+
+# ----- Run Minimization -----
+fix 		BRX all box/relax iso 1.013
+minimize	1e-25 1e-25 5000 10000 # Performs actual minimization
+PPPM initialization ...
+WARNING: System is not charge neutral, net charge = -0.256 (../kspace.cpp:302)
+  using 12-bit tables for long-range coulomb (../kspace.cpp:321)
+  G vector (1/distance) = 0.201677
+  grid = 36 50 24
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00104623
+  estimated relative force accuracy = 7.26566e-05
+  using double precision FFTs
+  3d grid and FFT values/proc = 65395 43200
+Neighbor list info ...
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 15.3
+  ghost atom cutoff = 15.3
+  binsize = 7.65, bins = 15 9 5
+  3 neighbor lists, perpetual/occasional/extra = 3 0 0
+  (1) pair morse, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton/tri
+      stencil: half/bin/3d/newton/tri
+      bin: standard
+  (2) pair buck, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+  (3) pair lj/cut/coul/long, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+Per MPI rank memory allocation (min/avg/max) = 158.3 | 158.3 | 158.3 Mbytes
+Step Temp Volume Cella Cellb Cellc CellGamma Pxx Pyy Pzz Pxy Pxz Pyz Lx Ly Lz Press PotEng 
+       0            0    172711.88       73.664    73.664001       36.752          120   -204287.19   -203921.25   -275759.15    14.409285    148.37018    61.948388       73.664    63.794896       36.752    -227989.2   -308818.52 
+      10            0    172194.26    73.590336    73.590337    36.715248          120   -198242.94   -198866.33   -269748.85    588.97858    1435.5224   -450.30382    73.590336    63.731101    36.715248   -222286.04   -308926.98 
+      20            0    171677.68    73.516672    73.516673    36.678496          120   -191077.53   -192692.18   -263360.01     1165.624    2727.6277   -964.43094    73.516672    63.667306    36.678496   -215709.91   -308996.53 
+      30            0    171162.13    73.443008    73.443009    36.641744          120   -183888.41   -186498.51   -257148.71    1744.8482     4025.246   -1480.2541    73.443008    63.603511    36.641744   -209178.54   -309067.82 
+      40            0    170647.62    73.369344    73.369345    36.604992          120   -176591.87    -180202.5   -250775.47    2326.1933     5327.957   -1999.7045    73.369344    63.539716    36.604992   -202523.28   -309134.35 
+      50            0    170134.13     73.29568    73.295681     36.56824          120    -169176.6   -173791.05   -244188.88    2910.1319    6636.4853   -2521.1481     73.29568    63.475922     36.56824   -195718.84    -309197.3 
+      60            0    169621.68    73.222016    73.222017    36.531488          120   -161832.44   -167452.54   -237984.89    3497.0297    7948.4474   -3043.5901    73.222016    63.412127    36.531488   -189089.96   -309264.18 
+      70            0    169110.26    73.148352    73.148353    36.494736          120   -154313.51   -160945.26   -231382.59     4084.979    9266.4393   -3568.4282    73.148352    63.348332    36.494736   -182213.79   -309324.31 
+      80            0    168599.87    73.074688    73.074689    36.457984          120   -146727.36   -154375.08   -224656.79    4675.5959    10589.912   -4094.8955    73.074688    63.284537    36.457984   -175253.08   -309381.93 
+      90            0     168090.5    73.001024    73.001025    36.421232          120   -138997.51   -147664.91   -217736.34    5268.6837    11918.343   -4623.8942    73.001024    63.220742    36.421232   -168132.92   -309436.17 
+     100            0    167582.16     72.92736    72.927361     36.38448          120   -131385.06   -141075.34   -210773.05    5864.7862    13252.159   -5154.2584     72.92736    63.156947     36.38448   -161077.81   -309492.35 
+     110            0    167074.85    72.853696    72.853697    36.347728          120   -123468.91   -134187.56   -203856.14    6462.1562    14591.394   -5687.5787    72.853696    63.093152    36.347728   -153837.54   -309542.61 
+     120            0    166568.56    72.780032    72.780033    36.310976          120   -115499.94   -127250.56   -196831.36    7061.2631    15935.427   -6222.4159    72.780032    63.029357    36.310976   -146527.29   -309590.79 
+     130            0     166063.3    72.706368    72.706369    36.274224          120   -107384.19    -120171.3   -189705.02     7663.649    17284.767   -6759.4066    72.706368    62.965562    36.274224   -139086.84   -309635.99 
+     140            0    165559.06    72.632704    72.632705    36.237472          120   -99200.305   -113027.96   -182382.46    8268.2731    18639.438   -7299.0209    72.632704    62.901767    36.237472   -131536.91   -309678.32 
+     150            0    165055.84     72.55904    72.559041     36.20072          120    -90918.86   -105789.98   -175057.03    8875.3836     19999.81   -7840.2227     72.55904    62.837973     36.20072   -123921.96   -309718.81 
+     160            0    164553.64    72.485376    72.485377    36.163968          120   -82563.292    -98483.38   -167733.11    9484.4764     21364.74   -8382.6618    72.485376    62.774178    36.163968   -116259.93   -309757.34 
+     170            0    164052.47    72.411712    72.411713    36.127216          120   -74037.819   -91010.759   -160288.14     10095.63    22735.483   -8927.9588    72.411712    62.710383    36.127216   -108445.57   -309792.48 
+     180            0    163552.31    72.338048    72.338049    36.090464          120   -65477.831   -83505.203   -152659.46    10709.626    24111.391   -9475.5099    72.338048    62.646588    36.090464    -100547.5   -309825.43 
+     190            0    163053.16    72.264384    72.264385    36.053712          120   -56819.212   -75906.737   -145004.17    11325.976    25492.808   -10025.227    72.264384    62.582793    36.053712   -92576.705   -309855.98 
+     200            0    162555.04     72.19072    72.190721     36.01696          120   -48088.266   -68239.589   -137452.01    11944.634    26878.889    -10577.11     72.19072    62.518998     36.01696   -84593.288   -309885.34 
+     210            0    162057.93    72.117056    72.117057    35.980208          120   -39178.258   -60397.247   -129634.38    12565.966    28270.536   -11130.742    72.117056    62.455203    35.980208   -76403.296   -309910.55 
+     220            0    161561.83    72.043392    72.043393    35.943456          120   -30205.018    -52497.11   -121651.08    13189.161    29667.374   -11685.864    72.043392    62.391408    35.943456   -68117.737   -309933.09 
+     230            0    161066.75    71.969728    71.969729    35.906704          120   -21035.612   -44403.637   -113441.92    13815.548    31069.445   -12242.698    71.969728    62.327613    35.906704   -59627.055   -309951.47 
+     240            0    160572.68    71.896064    71.896065    35.869952          120   -11794.496   -36241.784   -105241.89    14442.673    32476.119   -12802.008    71.896064    62.263818    35.869952   -51092.725   -309968.15 
+     250            0    160079.62      71.8224    71.822401      35.8332          120   -2654.2413   -28185.619   -96951.481    15070.759    33887.261   -13362.707      71.8224    62.200024      35.8332   -42597.114   -309985.14 
+     260            0    159587.58    71.748736    71.748737    35.796448          120    6151.9357   -20466.853   -90464.359    15700.772     35302.34   -13925.197    71.748736    62.136229    35.796448   -34926.426   -310036.33 
+     270            0    159096.54    71.675072    71.675073    35.759696          120    15712.256   -11997.286   -82006.734    16332.743    36720.305   -14488.438    71.675072    62.072434    35.759696   -26097.255   -310045.31 
+     277            0    159068.85    71.670914    71.670914    35.757621          120    16251.906   -11519.157   -81526.648    16368.436     36800.68    -14520.35    71.670914    62.068833    35.757621   -25597.966   -310045.79 
+Loop time of 176.365 on 1 procs for 277 steps with 15232 atoms
+
+100.0% CPU use with 1 MPI tasks x no OpenMP threads
+
+Minimization stats:
+  Stopping criterion = linesearch alpha is zero
+  Energy initial, next-to-last, final = 
+          -308818.5199     -310045.800013     -310045.800013
+  Force two-norm initial, final = 73731.1 7918.09
+  Force max component initial, final = 73730.9 7836.66
+  Final line search alpha, max atom move = 1.90147e-16 1.49012e-12
+  Iterations, force evaluations = 277 383
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 157.02     | 157.02     | 157.02     |   0.0 | 89.03
+Bond    | 0.008646   | 0.008646   | 0.008646   |   0.0 |  0.00
+Kspace  | 5.2336     | 5.2336     | 5.2336     |   0.0 |  2.97
+Neigh   | 8.0308     | 8.0308     | 8.0308     |   0.0 |  4.55
+Comm    | 0.12803    | 0.12803    | 0.12803    |   0.0 |  0.07
+Output  | 0.0034566  | 0.0034566  | 0.0034566  |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.94       |            |       |  3.37
+
+Nlocal:    15232 ave 15232 max 15232 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:    47648 ave 47648 max 47648 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:    1.08767e+07 ave 1.08767e+07 max 1.08767e+07 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 10876672
+Ave neighs/atom = 714.067
+Ave special neighs/atom = 0.0504202
+Neighbor list builds = 24
+Dangerous builds = 0
