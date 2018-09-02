@@ -14,13 +14,5 @@ Output       = $(dir)/$(Cluster)_$(Process).out
 executable   = /work/gcates/research/prod/8x8x2/wet_025/run.sh 
 
 
-arguments = 1100  
-Queue
-arguments = 1700  
-Queue
 arguments = 1800  
-Queue
-arguments = 1900  
-Queue
-arguments = 2000  
 Queue

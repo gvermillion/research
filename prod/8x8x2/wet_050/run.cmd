@@ -11,7 +11,7 @@ Log          = $(dir)/$(Cluster)_condor_run.log
 Error        = $(dir)/$(Cluster)_$(Process).error
 Output       = $(dir)/$(Cluster)_$(Process).out
 
-executable   = /work/gcates/research/prod/8x8x2/wet_025/run.sh 
+executable   = /work/gcates/research/prod/8x8x2/wet_050/run.sh 
 
 
 arguments = 100  

@@ -300,3 +300,201 @@
 	0  -  MemoryUsage of job (MB)
 	0  -  ResidentSetSize of job (KB)
 ...
+009 (033.007.000) 08/31 13:10:02 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+004 (033.000.000) 08/31 13:10:02 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:15:02, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :        1        1    169907
+	   Gpus                 :                 1         1
+	   Memory (MB)          :        0        1      4096
+...
+004 (033.008.000) 08/31 13:10:02 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:15:02, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         4
+	   Disk (KB)            :        1        1    170042
+	   Gpus                 :                 1         1
+	   Memory (MB)          :        0        1       128
+...
+004 (033.003.000) 08/31 13:10:02 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:15:02, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         4
+	   Disk (KB)            :        1        1    169359
+	   Gpus                 :                 1         1
+	   Memory (MB)          :        0        1     10112
+...
+004 (033.006.000) 08/31 13:10:02 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:15:02, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         4
+	   Disk (KB)            :        1        1    168456
+	   Gpus                 :                 1         1
+	   Memory (MB)          :        0        1     10112
+...
+004 (033.002.000) 08/31 13:10:02 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:15:02, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         4
+	   Disk (KB)            :        1        1    169898
+	   Gpus                 :                 1         1
+	   Memory (MB)          :        0        1       128
+...
+004 (033.005.000) 08/31 13:10:02 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:15:02, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         4
+	   Disk (KB)            :        1        1    168805
+	   Gpus                 :                 1         1
+	   Memory (MB)          :        0        1     10112
+...
+004 (033.001.000) 08/31 13:10:02 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:15:02, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         4
+	   Disk (KB)            :        1        1    164974
+	   Gpus                 :                 1         1
+	   Memory (MB)          :        0        1       128
+...
+004 (033.004.000) 08/31 13:10:02 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:15:02, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         4
+	   Disk (KB)            :        1        1    167882
+	   Gpus                 :                 1         1
+	   Memory (MB)          :        0        1     10112
+...
+009 (033.001.000) 08/31 13:10:02 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+004 (033.009.000) 08/31 13:10:02 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:15:02, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         4
+	   Disk (KB)            :        1        1    182928
+	   Gpus                 :                 1         1
+	   Memory (MB)          :        0        1     10112
+...
+004 (033.013.000) 08/31 13:10:02 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:15:02, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         4
+	   Disk (KB)            :        1        1    169370
+	   Gpus                 :                 1         1
+	   Memory (MB)          :        0        1     10112
+...
+004 (033.011.000) 08/31 13:10:02 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:15:02, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         4
+	   Disk (KB)            :        1        1    182323
+	   Gpus                 :                 1         1
+	   Memory (MB)          :        0        1     10112
+...
+009 (033.002.000) 08/31 13:10:02 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (033.005.000) 08/31 13:10:02 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+004 (033.014.000) 08/31 13:10:02 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:15:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         4
+	   Disk (KB)            :        1        1    181839
+	   Gpus                 :                 1         1
+	   Memory (MB)          :        0        1     10112
+...
+009 (033.003.000) 08/31 13:10:02 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+004 (033.012.000) 08/31 13:10:02 Job was evicted.
+	(0) Job was not checkpointed.
+		Usr 0 00:15:02, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         4
+	   Disk (KB)            :        1        1    183140
+	   Gpus                 :                 1         1
+	   Memory (MB)          :        0        1     10112
+...
+009 (033.006.000) 08/31 13:10:02 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (033.008.000) 08/31 13:10:02 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (033.000.000) 08/31 13:10:02 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (033.004.000) 08/31 13:10:02 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (033.011.000) 08/31 13:10:02 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (033.009.000) 08/31 13:10:02 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (033.013.000) 08/31 13:10:02 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (033.012.000) 08/31 13:10:02 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
+009 (033.014.000) 08/31 13:10:02 Job was aborted by the user.
+	via condor_rm (by user gcates)
+...
