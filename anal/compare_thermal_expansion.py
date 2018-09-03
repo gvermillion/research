@@ -61,63 +61,58 @@ def perform_binning_analysis(O):
     return data
 
 
-# Load and organize data
-datafile, epsilon, label = validate_input()
-data = pickle.load(open(datafile,"r"))
-U = np.array([i[10] for i in data]) # [eV]
-p = np.array([i[11] for i in data]) # [bar]
-V = np.array([i[12] for i in data]) # [angstrom**3]
-
-def calc_var(U, p, V):
-	k = 6.24*10**(-7) # [bar*angstrom**3] --> [eV]
-	var_Hs = []
-	for i in np.arange(len(U)):
-		var_H = np.var(U[i]) + 2*k**2*np.cov(U[i],p[i]*V[i])[0][1] +k**2*((np.var(p[i])+np.mean(p[i])**2)*(np.var(V[i]) +np.mean(V[i])**2)-(np.cov(p[i],V[i])[0][1]+np.mean(p[i])*np.mean(V[i]))**2 + np.cov(p[i]**2,V[i]**2)[0][1])
-		var_Hs.append(var_H)
-	return var_Hs
-
-def plot_Cp(data,epsilon,label):	
+def plot_alpha(data,epsilon,label):
 	Ts = [i[0] for i in data] 
 
-	U = np.array([i[10] for i in data]) # [eV]
-	p = np.array([i[11] for i in data]) # [bar]
 	V = np.array([i[12] for i in data]) # [angstrom**3]
 
-	conversion = 6.24*10**(-7) # [bar*angstrom**3] --> [eV]
-
-	H = U + conversion*p*V  # [eV]
-	var_Hs = calc_var(U,p,V)
-
 	# Center Finite-Difference Method
-	Cp_data = zip(Ts,[perform_binning_analysis(i) for i in H])
-	Cps_fcd = []
-	err = []
-	
-	for i in np.arange(len(Cp_data)-1):
-		T2 = Cp_data[i+1][0]
-		T1 = Cp_data[i-1][0]
-		H2 = Cp_data[i+1][1][0]
-		H1 = Cp_data[i-1][1][0]
-		var_H2 = var_Hs[i+1]
-		var_H1 = var_Hs[i-1]
+	alpha_data = zip(Ts,[perform_binning_analysis(i) for i in V])
+	alpha_fcd = []
 
+	for i in np.arange(len(alpha_data)-1):
+		T2 = alpha_data[i+1][0]
+		T1 = alpha_data[i-1][0]
+		V2 = alpha_data[i+1][1][0]
+		V1 = alpha_data[i-1][1][0]
+		V0 = alpha_data[i][1][0]
 		if T2-T1 == 2*epsilon:
-			Cps_fcd.append([T2-epsilon,(H2-H1)/(2*epsilon)])
-			error = np.sqrt(var_H2+var_H1-2*np.cov(H[i+1],H[i-1])[0][1])
-			err.append(error)
+			alpha_fcd.append([T2-epsilon,(V2-V1)/(2*epsilon*V0)])
 
-	m,b = np.polyfit([i[0] for i in Cps_fcd],[i[1] for i in Cps_fcd],1)
+	m,b = np.polyfit([i[0] for i in alpha_fcd],[i[1] for i in alpha_fcd],1)
 	x = np.linspace(Ts[0],Ts[-1],100)
 
 	# Print
-	print("\n{}:".format(label))
+	print("{}:".format(label))
 	print("Slope: {}".format(m))
 	print("Intercept: {}".format(b))
-	plt.errorbar([i[0] for i in Cps_fcd],[i[1] for i in Cps_fcd], yerr=err,label=label,fmt="-o")
+
+	plt.plot([i[0] for i in alpha_fcd],[i[1] for i in alpha_fcd],label=label,ls="None",marker="x")
 	plt.plot(x,m*x+b,label="{} fit".format(label))
+
+# Load and organize data
+datafile_dry = "../prod/8x8x2/dry/data/run_07/analyzedData.dat"
+datafile_025 = "../prod/8x8x2/wet_025/data/run_01/analyzedData.dat"
+datafile_050 = "../prod/8x8x2/wet_050/data/run_01/analyzedData.dat"
+datafile_100 = "../prod/8x8x2/wet_100/data/run_01/analyzedData.dat"
+label_dry = "Dry"
+label_025 = "Wet-25"
+label_050 = "Wet-50"
+label_100 = "Wet-100"
+epsilon = 100.
+
+data_dry = pickle.load(open(datafile_dry,"r"))
+data_025 = pickle.load(open(datafile_025,"r"))
+data_050 = pickle.load(open(datafile_050,"r"))
+data_100 = pickle.load(open(datafile_100,"r"))
 # Plot
 plt.figure()
-plt.title("Specific Heat: {}\nCenter FD Method".format(label))
-plot_Cp(data,epsilon,label)
+plt.title("Specific Heat Comparison\nCenter FD Method")
+plot_alpha(data_dry,epsilon,label_dry)
+plot_alpha(data_025,epsilon,label_025)
+plot_alpha(data_050,epsilon,label_050)
+plot_alpha(data_100,epsilon,label_100)
 plt.legend()
 plt.show()
+
+

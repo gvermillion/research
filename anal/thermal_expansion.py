@@ -6,10 +6,10 @@ import csv
 
 # PREAMBLE
 def validate_input():
-	if len(sys.argv) != 3:
-    		print("Usage: python {} ANALYZED_DATA_FILE EPSILON".format(sys.argv[0]))
+	if len(sys.argv) != 4:
+    		print("Usage: python {} ANALYZED_DATA_FILE EPSILON LABEL".format(sys.argv[0]))
     		sys.exit(2)
-	return sys.argv[1], float(sys.argv[2])
+	return sys.argv[1], float(sys.argv[2]), sys.argv[3]
 
 def binning_analysis(O,k):
 	# determine number of blocks
@@ -61,38 +61,41 @@ def perform_binning_analysis(O):
     return data
 
 # Load and organize data
-datafile, epsilon = validate_input()
+datafile, epsilon, label = validate_input()
 data = pickle.load(open(datafile,"r"))
 
-Ts = [i[0] for i in data] 
+def plot_alpha(data,epsilon,label):
+	Ts = [i[0] for i in data] 
 
-V = np.array([i[12] for i in data]) # [angstrom**3]
+	V = np.array([i[12] for i in data]) # [angstrom**3]
 
-# Center Finite-Difference Method
-alpha_data = zip(Ts,[perform_binning_analysis(i) for i in V])
-alpha_fcd = []
+	# Center Finite-Difference Method
+	alpha_data = zip(Ts,[perform_binning_analysis(i) for i in V])
+	alpha_fcd = []
 
-for i in np.arange(len(alpha_data)-1):
-	T2 = alpha_data[i+1][0]
-	T1 = alpha_data[i-1][0]
-	V2 = alpha_data[i+1][1][0]
-	V1 = alpha_data[i-1][1][0]
-	V0 = alpha_data[i][1][0]
-	if T2-T1 == 2*epsilon:
-		alpha_fcd.append([T2-epsilon,(V2-V1)/(2*epsilon*V0)])
+	for i in np.arange(len(alpha_data)-1):
+		T2 = alpha_data[i+1][0]
+		T1 = alpha_data[i-1][0]
+		V2 = alpha_data[i+1][1][0]
+		V1 = alpha_data[i-1][1][0]
+		V0 = alpha_data[i][1][0]
+		if T2-T1 == 2*epsilon:
+			alpha_fcd.append([T2-epsilon,(V2-V1)/(2*epsilon*V0)])
 
-m,b = np.polyfit([i[0] for i in alpha_fcd],[i[1] for i in alpha_fcd],1)
-x = np.linspace(Ts[0],Ts[-1],100)
+	m,b = np.polyfit([i[0] for i in alpha_fcd],[i[1] for i in alpha_fcd],1)
+	x = np.linspace(Ts[0],Ts[-1],100)
 
-# Print
-print("\nSlope: {}".format(m))
-print("Intercept: {}".format(b))
+	# Print
+	print("{}:".format(label))
+	print("Slope: {}".format(m))
+	print("Intercept: {}".format(b))
 
+	plt.plot([i[0] for i in alpha_fcd],[i[1] for i in alpha_fcd],label=label,ls="None",marker="x")
+	plt.plot(x,m*x+b,label="{} fit".format(label))
 # Plot
 plt.figure()
 plt.title("Thermal Expansion Coefficient\nCenter FD Method")
-plt.plot([i[0] for i in alpha_fcd],[i[1] for i in alpha_fcd],ls="None",marker="x")
-plt.plot(x,m*x+b)
+plot_alpha(data,epsilon,label)
 plt.show()
 
 
