@@ -43,3 +43,11 @@ sample	50
 epsilon	100	
 range	(100,2000)
 calculated C6 coefficients for Be-O, Al-O, Si-O, O-O, Be-Be, Al-Al, Si-Si
+
+run_08/
+*******************
+run 	100000
+sample	50
+epsilon	5  	
+range	(565,580) 
+calculated C6 coefficients for Be-O, Al-O, Si-O, O-O, Be-Be, Al-Al, Si-Si

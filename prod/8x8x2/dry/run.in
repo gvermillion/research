@@ -13,11 +13,12 @@ variable 	maxeval equal 10000
 variable	probeTemp equal PROBETEMP
 
 #----- Create Atoms -----
-read_data 	data.mod
+read_data 	beryl.mod
 replicate 	8 8 2	
 
 #----- Define Interatomic Potential -----
-include 	potential.mod
+include 	potential_main.mod
+include 	potential_beryl.mod
 #------ Define Settings -----
 
 # ----- Run Minimization -----
@@ -26,7 +27,7 @@ include 	potential.mod
 #include		calcLatticeParams.mod
 
 reset_timestep	0
-timestep	0.001
+timestep	0.0001
 velocity       	all create ${probeTemp} 87287 loop geom
 fix		1 all npt temp ${probeTemp} ${probeTemp} 0.1 iso 1.013 1.013 5.0 
 run		1000 # Warmup

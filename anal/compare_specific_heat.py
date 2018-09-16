@@ -107,7 +107,8 @@ def plot_Cp(data,epsilon,label):
 	print("\n{}:".format(label))
 	print("Slope: {}".format(m))
 	print("Intercept: {}".format(b))
-	plt.errorbar([i[0] for i in Cps_fcd],[i[1] for i in Cps_fcd], yerr=err,label=label,fmt="-o")
+	#plt.errorbar([i[0] for i in Cps_fcd],[i[1] for i in Cps_fcd], yerr=err,label=label,fmt="-o")
+	plt.plot([i[0] for i in Cps_fcd],[i[1] for i in Cps_fcd],label=label)
 	plt.plot(x,m*x+b,label="{} fit".format(label))
 
 # Load and organize data

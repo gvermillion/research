@@ -6,11 +6,19 @@ import csv
 
 # PREAMBLE
 def validate_input():
-	if len(sys.argv) != 4:
+	if len(sys.argv) < 4:
     		print("Usage: python {} ANALYZED_DATA_FILE EPSILON LABEL".format(sys.argv[0]))
     		sys.exit(2)
 	return sys.argv[1], float(sys.argv[2]), sys.argv[3]
 
+#def validate_input():
+#	if len(sys.argv) < 4:
+#    		print("Usage: python {} ANALYZED_DATA_FILE EPSILON LABEL ERROR_BARS(1: YES/0: NO [default])".format(sys.argv[0]))
+#    		sys.exit(2)
+#	elif len(sys.argv) == 4:
+#		return sys.argv[1], float(sys.argv[2]), sys.argv[3], int(0)
+#	else:
+#		return sys.argv[1], float(sys.argv[2]), sys.argv[3], int(sys.argv[4])
 def binning_analysis(O,k):
 	# determine number of blocks
         noBlocks = len(O)//k
@@ -113,7 +121,8 @@ def plot_Cp(data,epsilon,label):
 	print("\n{}:".format(label))
 	print("Slope: {}".format(m))
 	print("Intercept: {}".format(b))
-	plt.errorbar([i[0] for i in Cps_fcd],[i[1] for i in Cps_fcd], yerr=err,label=label,fmt="-o")
+	#plt.errorbar([i[0] for i in Cps_fcd],[i[1] for i in Cps_fcd], yerr=err,label=label,fmt="-o")
+	plt.plot([i[0] for i in Cps_fcd],[i[1] for i in Cps_fcd],label=label)
 	plt.plot(x,m*x+b,label="{} fit".format(label))
 # Plot
 plt.figure()
