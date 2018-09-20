@@ -14,47 +14,49 @@ Output       = $(dir)/$(Cluster)_$(Process).out
 executable   = /work/gcates/research/prod/8x8x2/dry/run.sh 
 
 
-arguments = 539   
+arguments = 606   
 Queue
-arguments = 540   
+arguments = 618   
 Queue
-arguments = 541   
+arguments = 619   
 Queue
-arguments = 542   
+arguments = 620   
 Queue
-arguments = 543   
+arguments = 621   
 Queue
-arguments = 544   
+arguments = 622   
 Queue
-arguments = 545   
+arguments = 623   
 Queue
-arguments = 546   
+arguments = 624   
 Queue
-arguments = 547 
+arguments = 625   
 Queue
-arguments = 548   
+arguments = 626 
 Queue
-arguments = 549   
+arguments = 627   
 Queue
-arguments = 550   
+arguments = 628   
 Queue
-arguments = 551   
+arguments = 629   
 Queue
-arguments = 552   
+arguments = 630   
 Queue
-arguments = 553   
+arguments = 631   
 Queue
-arguments = 554   
+arguments = 632   
 Queue
-arguments = 555   
+arguments = 633   
 Queue
-arguments = 556   
+arguments = 634   
 Queue
-arguments = 557   
+arguments = 635   
 Queue
-arguments = 558   
+arguments = 636   
 Queue
-arguments = 559   
+arguments = 637   
 Queue
-arguments = 560   
+arguments = 638   
+Queue
+arguments = 639   
 Queue
