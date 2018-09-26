@@ -1,6 +1,8 @@
 #!/bin/bash
 
 universe     = vanilla
+requirements = OpSys == "Ubuntu16" && (CUDA0Capability >= 3.5) && CUDA0Capability >= 3.0
+Rank         = CUDA0GlobalMemoryMb
 request_GPUs = 1
 request_CPUs = 1
 

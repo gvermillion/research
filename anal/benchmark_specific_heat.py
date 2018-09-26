@@ -124,17 +124,33 @@ def plot_Cp(data,epsilon,label):
 
 	m,b = np.polyfit([i[0] for i in Cps_fcd],[i[1] for i in Cps_fcd],1)
 	x = np.linspace(Ts[0],Ts[-1],100)
+	
+	# Benchmark (American Mineralogist, Volume 76, pages 557-568, 1986)
+	C1 = 1625.842
+	C2 = -0.425206
+	C3 = 12.0318*10**(-5)
+	C4 = -20180.94
+	C5 = 6.82544*10**(6)
+	bench_Ts = np.linspace(200,1800,1000)
+	bench_Cps = C1 + C2*bench_Ts + C3*bench_Ts**2 + C4*bench_Ts**(-0.5) + C5*bench_Ts**(-2) # [J/mol/K]
+	#convert = 1.037*10**(-5) # [J/mol/K] -> [eV/K]
+	#convert = 1#6.242 # [J/mol/K] -> [eV/mol/K] E-18
+  	convert = 188.36 # [ev/K] -> [J/mol/K]
 
 	# Print
 	print("\n{}:".format(label))
 	print("Slope: {}".format(m))
 	print("Intercept: {}".format(b))
 	#plt.errorbar([i[0] for i in Cps_fcd],[i[1] for i in Cps_fcd], yerr=err,label=label,fmt="-o")
-	plt.plot([i[0] for i in Cps_fcd],[i[1] for i in Cps_fcd],label=label)
-	plt.plot(x,m*x+b,label="{} fit".format(label))
+	plt.plot(x,(m*x+b)*convert,label="{} fit".format(label))
+	plt.plot(bench_Ts,bench_Cps,label="Exp")
+
+	
 # Plot
 plt.figure()
 plt.title("Specific Heat: {}\nCenter FD Method".format(label))
 plot_Cp(data,epsilon,label)
+plt.xlabel("Temperature [K]")
+plt.ylabel("Cp [J/mol/K]")
 plt.legend()
 plt.show()

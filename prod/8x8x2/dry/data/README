@@ -48,6 +48,15 @@ run_08/
 *******************
 run 	100000
 sample	50
-epsilon	5  	
-range	(565,580) 
+epsilon	1  	
+range	(473,636) 
 calculated C6 coefficients for Be-O, Al-O, Si-O, O-O, Be-Be, Al-Al, Si-Si
+
+run_09/
+*******************
+run 	100000
+sample	50
+epsilon	10	
+range	(100,500)
+calculated C6 coefficients for Be-O, Al-O, Si-O, O-O, Be-Be, Al-Al, Si-Si
+trying to test low-temp specific heat

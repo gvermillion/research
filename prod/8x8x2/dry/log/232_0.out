@@ -1,6 +1,0 @@
-LAMMPS (16 Mar 2018)
-Reading data file ...
-  triclinic box = (0 0 0) to (9.208 7.97436 18.376) with tilt (-4.604 0 0)
-  1 by 1 by 1 MPI processor grid
-ERROR: Unknown identifier in data file: 5	1.008 (../read_data.cpp:710)
-Last command: read_data 	atoms.mod

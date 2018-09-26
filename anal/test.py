@@ -14,4 +14,12 @@ def validate_input():
 		return sys.argv[1], float(sys.argv[2]), sys.argv[3], int(0)
 	else:
 		return sys.argv[1], float(sys.argv[2]), sys.argv[3], int(sys.argv[4])
-datafile, epsilon, label, error = validate_input()
+#datafile, epsilon, label, error = validate_input()
+
+def same_length(a,b):
+	if len(a) < len(b):
+		return a, b[:len(a)]
+	elif len(b) < len(a):
+		return a[:len(b)], b
+	else:
+		return a,b
