@@ -1,0 +1,7 @@
+potential_map - energy of single point calculation for different water position in beryl pore along with files that create the required geometry for a given angle and shift;
+beryl_opt - optimization for beryl crystal without water;
+beryl_freeze_2mol_Be - optimization for beryl+2 water molecule with frozen beryl atoms. The water molecules were initially aligned in the direction of a Be atom;
+full_relax_2mol_Be -the same as above, but all atoms are allowed to relax;
+full_relax_2mol_Al -the same as above, but The water molecules were initially aligned in the direction of a Al atom;
+full_relax_1mol_Al -the same as above, but with 1 water molecule in u.c.;
+full_relax_2mol_Be_reverse - the same as "full_relax_2mol_Be", but the dipole moments of the water molecule point in the same direction;
