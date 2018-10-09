@@ -1,0 +1,16 @@
+general:
+ System = Beryl
+ ENCUT = 500
+ ISMEAR = 0
+ SIGMA = 0.025
+ PREC = Acc
+ EDIFF = -.1E-06
+ EDIFFG = -.2E-03
+ LREAL = Auto
+ LORBIT=11
+ NELMIN = 4
+dynamic:
+ IBRION = 2
+ POTIM = 1.0
+ ISIF = 2
+ NSW = 200
