@@ -1,0 +1,44 @@
+LAMMPS (18 Sep 2018)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:87)
+  using 1 OpenMP thread(s) per MPI task
+# Fin dminimud floating point parameter in input script or data file (../fix_nh.cpp:132)energy for Beryl
+
+#----- Initialize Simulation -----
+clear
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:87)
+  using 1 OpenMP thread(s) per MPI task
+units 		metal
+boundary 	p p p
+atom_style 	full
+bond_style	none
+variable	etol equal 1e-25
+variable 	ftol equal 1e-25
+variable 	maxiter equal 5000
+variable 	maxeval equal 10000
+variable	probeTemp equal 110
+
+#----- Create Atoms -----
+read_data 	beryl.mod
+  triclinic box = (0 0 0) to (9.208 7.97436 18.376) with tilt (-4.604 0 0)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  116 atoms
+  0 = max # of 1-2 neighbors
+  0 = max # of 1-3 neighbors
+  0 = max # of 1-4 neighbors
+  1 = max # of special neighbors
+replicate 	8 8 2
+  triclinic box = (0 0 0) to (73.664 63.7949 36.752) with tilt (-36.832 0 0)
+  1 by 1 by 1 MPI processor grid
+  14848 atoms
+  0 = max # of 1-2 neighbors
+  0 = max # of 1-3 neighbors
+  0 = max # of 1-4 neighbors
+  1 = max # of special neighbors
+  Time spent = 0.00262163 secs
+
+#----- Define Interatomic Potential -----
+include 	potential_main.mod
+kspace_style 	pppm 1.0e-4
+ERROR: Unknown kspace style pppm (src/force.cpp:719)
+Last command: kspace_style 	pppm 1.0e-4
