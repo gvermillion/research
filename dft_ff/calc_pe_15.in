@@ -13,7 +13,7 @@ variable 	maxeval equal 10000
 variable	probeTemp equal PROBETEMP
 
 #----- Create Atoms -----
-read_data 	beryl_water_NN.mod
+read_data 	beryl_water_15.mod
 replicate 	1 1 1	
 
 #----- Define Interatomic Potential -----

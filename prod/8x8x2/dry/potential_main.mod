@@ -8,7 +8,7 @@ neigh_modify	delay 0 every 1 check yes
 min_style	cg
  
 # Setup Output
-thermo		10
+thermo		100
 thermo_style	custom	step temp vol cella cellb cellc cellgamma pxx pyy pzz pxy pxz pyz lx ly lz press pe #c_eatoms
 thermo_modify	norm no
 variable 	myVol equal vol
