@@ -1,6 +1,6 @@
 created by fftool
 
-119 atoms
+61  atoms
 6 atom types
 2 bonds
 1 bond types

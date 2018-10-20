@@ -21,4 +21,9 @@ include 	potential_main.mod
 include 	potential_beryl.mod
 include		potential_water.mod
 
+fix BRX all box/relax iso 1.013
+
 dump MIN all custom 1 min.lammpstrj id type element x y z ix iy iz
+
+minimize        1e-6 1e-6 5000 10000 # Performs actual minimization
+undump MIN
