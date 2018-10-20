@@ -13,19 +13,14 @@ variable 	maxeval equal 10000
 variable	probeTemp equal PROBETEMP
 
 #----- Create Atoms -----
-read_data 	beryl_water_5.mod
+read_data 	beryl_water_10.mod
 replicate 	1 1 1	
-group		water type 5 6 
-compute 	peratom water pe/atom
-compute         pe water reduce sum c_peratom
-thermo_style	custom step c_pe
 
 #----- Define Interatomic Potential -----
 include 	potential_main.mod
 include 	potential_beryl.mod
 include		potential_water.mod
 
+compute pre_pe all pe
 fix BRX all box/relax iso 1.013
 minimize        1e-6 1e-6 5000 10000 # Performs actual minimization
-timestep	0.0005
-run 	0 

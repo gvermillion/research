@@ -9,7 +9,7 @@ min_style	cg
  
 # Setup Output
 thermo		10
-thermo_style	custom	step temp vol cella cellb cellc cellgamma pxx pyy pzz pxy pxz pyz lx ly lz press pe #c_eatoms
+#thermo_style	custom  step temp vol cella cellb cellc cellgamma pxx pyy pzz pxy pxz pyz lx ly lz press pe	
 thermo_modify	norm no
 variable 	myVol equal vol
 variable	myCella equal cella
