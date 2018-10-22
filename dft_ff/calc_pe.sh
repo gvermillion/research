@@ -25,7 +25,7 @@ for ii in {0..9};
 		for jj in {0..19}; 
 			do 
 				../../run_system.sh $jj 
-			done | grep '^       0' | tee ../../data/current_run/pe_system_q_$i.dat 
+			done | grep '^       0' | tee ../../data/current_run/pe_system_q_$ii.dat 
 		cd ../../
 	done
 
