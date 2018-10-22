@@ -12,7 +12,7 @@ variable        maxeval equal 10000
 variable        probeTemp equal PROBETEMP
 
 #----- Create Atoms -----
-read_data       mod/beryl_water_NN_q_defmod
+read_data       mod/beryl_water_NN_q_0mod
 replicate       1 1 1   
 compute         pe all pe       
 thermo_style    custom step pe
