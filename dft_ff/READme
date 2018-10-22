@@ -4,6 +4,7 @@ Run the following in terminal for potential energy date of the (1) entire system
 
 (1):
 	for i in {0..19}; do ./run.sh ${i}; done | grep '^       0' | tee pe.dat
+	for i in {0..9}; do cd mod/q_${i}; for j in {0..19}; do ../../run.sh ${j}; done | grep '^       0' | tee ../../pe_${i}.dat; cd ../../; done;
 
 (2):
 	for i in {0..19}; do ./run_water.sh ${i}; done | grep '^       0' | tee pe_water.dat

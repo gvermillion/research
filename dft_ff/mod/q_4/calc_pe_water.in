@@ -12,7 +12,7 @@ variable        maxeval equal 10000
 variable        probeTemp equal PROBETEMP
 
 #----- Create Atoms -----
-read_data       beryl_water_NN_q_def.mod
+read_data       beryl_water_NN_q_4.mod
 replicate       1 1 1   
 group           water type 5 6 
 compute         peratom water pe/atom

@@ -5,6 +5,8 @@ for j in {0..9};
 do
 cp -r q_def/ q_${j}/
 cd q_${j}/
+sed -i s/'def'/${j}/g calc_pe.in
+sed -i s/'def'/${j}/g calc_pe_water.in
 
 for i in {0..19};
 do
