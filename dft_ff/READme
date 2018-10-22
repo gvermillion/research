@@ -1,0 +1,11 @@
+
+
+Run the following in terminal for potential energy date of the (1) entire system (2) water molecule
+
+(1):
+	for i in {0..19}; do ./run.sh ${i}; done | grep '^       0' | tee pe.dat
+
+(2):
+	for i in {0..19}; do ./run_water.sh ${i}; done | grep '^       0' | tee pe_water.dat
+
+
