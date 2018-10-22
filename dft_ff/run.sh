@@ -1,6 +1,3 @@
 #!/bin/bash
-for i in {1..20}:
-do ./calc_pe.sh ${i}
-done
-
-grep '^       0' | tee pe.dat
+cp calc_pe.in calc_pe_$1.in; sed -i s/'NN'/$1/g calc_pe_$1.in; lmp_icc_serial < calc_pe_$1.in
+rm calc_pe_$1.in

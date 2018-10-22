@@ -1,6 +1,0 @@
-# Fix print output for fix pe
-c_pe
-c_pe
-c_pe
-c_pe
-c_pe
