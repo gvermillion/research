@@ -10,3 +10,9 @@ Run the following in terminal for potential energy date of the (1) entire system
 	for i in {0..19}; do ./run_water.sh ${i}; done | grep '^       0' | tee pe_water.dat
 	for i in {0..9}; do cd mod/q_${i}; for j in {0..19}; do ../../run_water.sh ${j}; done | grep '^       0' | tee ../../pe_water_q_${i}.dat; cd ../../; done;
 
+Use in gnuplot for (1) entire system (2) water molecules
+
+(1):
+
+(2):
+	plot 'pe_water_q_0.dat' using 2 with linespoints, 'pe_water_q_1.dat' using 2 with linespoints, 'pe_water_q_2.dat' using 2 with linespoints,'pe_water_q_3.dat' using 2 with linespoints,'pe_water_q_4.dat' using 2 with linespoints,'pe_water_q_5.dat' using 2 with linespoints,'pe_water_q_6.dat' using 2 with linespoints,'pe_water_q_7.dat' using 2 with linespoints,'pe_water_q_8.dat' using 2 with linespoints,'pe_water_q_9.dat' using 2 with linespo
