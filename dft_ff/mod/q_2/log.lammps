@@ -42,9 +42,12 @@ replicate       1 1 1
   1 = max # of 1-3 neighbors
   1 = max # of 1-4 neighbors
   2 = max # of special neighbors
-  Time spent = 0.000181913 secs
-compute         pe all pe
-thermo_style    custom step pe
+  Time spent = 0.000167847 secs
+group           water type 5 6
+3 atoms in group water
+compute         peratom water pe/atom
+compute         pe water reduce sum c_peratom
+thermo_style    custom step c_pe
 
 #----- Define Interatomic Potential -----
 include         ../potential_main.mod
@@ -185,9 +188,9 @@ Neighbor list info ...
       pair build: copy
       stencil: none
       bin: none
-Per MPI rank memory allocation (min/avg/max) = 7.806 | 7.806 | 7.806 Mbytes
-Step PotEng 
-       0   -452.32745 
+Per MPI rank memory allocation (min/avg/max) = 8.648 | 8.648 | 8.648 Mbytes
+Step c_pe 
+       0     754.0135 
 Loop time of 9.53674e-07 on 1 procs for 0 steps with 61 atoms
 
 104.9% CPU use with 1 MPI tasks x 1 OpenMP threads
