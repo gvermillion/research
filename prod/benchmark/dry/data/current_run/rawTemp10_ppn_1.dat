@@ -1,4 +1,0 @@
-# Time-averaged data for fix 2
-# TimeStep c_thermo_temp c_thermo_pe c_thermo_press v_myVol v_myCella v_myCellb v_myCellc v_myCellgamma
-0 10 -308813 -228060 172712 73.664 73.664 36.752 120
-50 386.937 -310461 -140912 166592 72.7835 72.7835 36.3127 120
