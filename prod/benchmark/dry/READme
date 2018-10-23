@@ -1,0 +1,4 @@
+
+
+processor_benchmark.sh : Benchmark with temperature $1 to determine how many processors should be used for calculation. Scan 1 nodes with {1..16} processors.
+	./processor_benchmark.sh $1 

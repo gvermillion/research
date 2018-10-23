@@ -1,0 +1,2 @@
+/group/allatom/lammps/source/src/lmp_ompi_g++: error while loading shared libraries: libmpi.so.12: cannot open shared object file: No such file or directory
+mv: cannot stat 'data/current_run/cp_rawTemp190.dat': No such file or directory
