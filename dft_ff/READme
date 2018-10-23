@@ -6,3 +6,8 @@ Run './calc_pe.sh $1 $2' where partial charges $1+i*$2 for i in {0..9} will be s
 		Example:  
 			./calc_pe.sh 0.0 0.01 	<-- GOOD
 			./calc_pe.sh 0.00 0.01	<-- BAD
+
+
+For system data, headers are as follows:
+
+	step pe evdwl ecoul epair ebond eangle edihed etail 

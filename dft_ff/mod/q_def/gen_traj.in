@@ -1,8 +1,6 @@
 
 #----- Initialize Simulation -----
 clear
-units           metal
-boundary        p p p 
 atom_style      full
 bond_style      none
 variable        etol equal 1e-25
@@ -12,17 +10,17 @@ variable        maxeval equal 10000
 variable        probeTemp equal PROBETEMP
 
 #----- Create Atoms -----
-read_data       beryl_water_NN_q_def.mod
+read_data       beryl_water_0_q_def.mod
 replicate       1 1 1   
-thermo_style    custom step pe evdwl ecoul epair ebond eangle edihed etail 
+compute         pe all pe       
+thermo_style    custom step pe
 
 #----- Define Interatomic Potential -----
 include         ../potential_main.mod
 include         ../potential_beryl.mod
 include         ../potential_water.mod
 
-#fix BRX all box/relax iso 1.013
-#minimize        1e-6 1e-6 5000 10000 # Performs actual minimization
+dump XYZ all xtc 1 traj.xyz 
 timestep        0.0005
-run     0
+run     1
 
