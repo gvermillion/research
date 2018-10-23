@@ -3,6 +3,7 @@ cd mod/
 ./gen_qs.sh $1 $2
 cd ../
 
+
 echo Measuring partial charge:
 echo Water:
 for i in {0..9};
