@@ -31,7 +31,10 @@ for ii in {0..9};
 
 echo Cleaning up
 mkdir data/$1N
-mv data/current_run/* data/$1N
+mkdir data/$1N/water
+mkdir data/$1N/system
+mv data/current_run/*water* data/$1N/water
+mv data/current_run/*system* data/$1N/system
 for k in {0..9}; 
 	do
 		rm -r mod/q_$k
