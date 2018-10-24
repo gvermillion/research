@@ -17,7 +17,7 @@
 #MSUB -j oe 
 #
 #MSUB -m bae
-#MSUB -M gcates@icp.uni-stuttgart.de
+#MSUB -M thesisdatadump@gmail.com
 ########### End MOAB header ##########
 
 echo "Submit Directory:                     $MOAB_SUBMITDIR"

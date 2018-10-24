@@ -32,7 +32,7 @@ velocity       	all create ${probeTemp} 87287 loop geom
 #run		10000 # Warmup
 #thermo		0
 reset_timestep	0
-run 		10000
+run 		100000
 variable	probeTemp delete
 
 print		" "
