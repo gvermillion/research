@@ -1,3 +1,0 @@
-
-
-Use gen_qs.sh $1 $2 to generate directories with charges $1+i*$2 for i in {0..19}
