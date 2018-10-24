@@ -50,15 +50,15 @@ O_z = [0.0, 0.0, 0.0]
 
 
 if len(sys.argv) == 3:
-    theta = float(sys.argv[1])
-    phi = float(sys.argv[2])
+	theta = float(sys.argv[1])
+	phi = float(sys.argv[2])
 else:
-    if len(sys.argv) == 4:
-	shift = float(sys.argv[1])
-	theta = float(sys.argv[2])
-	phi = float(sys.argv[3])
-    else:
-	sys.exit("ERROR: number of arguments")
+	if len(sys.argv) == 4:
+		shift = float(sys.argv[1])
+		theta = float(sys.argv[2])
+		phi = float(sys.argv[3])
+	else:
+		sys.exit("ERROR: number of arguments")
 
 H_1[0] += shift 
 H_2[0] += shift 
@@ -83,4 +83,5 @@ H_2_z[2] += 2.296999931
 print ("%.9f,%.9f,%.9f" % (O_z[0], O_z[1], O_z[2]))
 print ("%.9f,%.9f,%.9f" % (H_1_z[0], H_1_z[1], H_1_z[2]))
 print ("%.9f,%.9f,%.9f" % (H_2_z[0], H_2_z[1], H_2_z[2]))
+
 
