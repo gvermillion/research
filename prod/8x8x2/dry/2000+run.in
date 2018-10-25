@@ -10,7 +10,7 @@ variable	etol equal 1e-25
 variable 	ftol equal 1e-25
 variable 	maxiter equal 5000
 variable 	maxeval equal 10000
-variable	probeTemp equal 11
+variable	probeTemp equal 2000
 
 #----- Create Atoms -----
 read_data 	beryl.mod
@@ -29,10 +29,13 @@ include 	potential_beryl.mod
 reset_timestep	0
 timestep	0.0005
 velocity       	all create ${probeTemp} 87287 loop geom
+fix		1 all npt temp ${probeTemp} ${probeTemp} 0.1 iso 1.013 1.013 5.0 
 #run		10000 # Warmup
-#thermo		0
+thermo		0
 reset_timestep	0
-run 		100000
+fix		2 all ave/time 1 1 50 c_thermo_temp c_thermo_pe c_thermo_press v_myVol v_myCella v_myCellb v_myCellc v_myCellgamma file data/current_run/cp_rawTemp${probeTemp}.dat # Potential energy, parameters, volume 
+run 		100000 #0
+unfix		2
 variable	probeTemp delete
 
 print		" "
