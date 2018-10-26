@@ -1,4 +1,5 @@
 kspace_style 	pppm/tip4p 1.0e-4
+pair_style 	hybrid/overlay morse 5.5 buck 5.5 lj/cut/coul/long 5.5 8.5 lj/cut/tip4p/long 5 6 1 1 0.1546 8.5    
 
 # Neighbor Style
 neighbor	0.3 bin

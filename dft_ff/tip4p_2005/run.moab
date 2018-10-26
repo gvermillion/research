@@ -1,0 +1,116 @@
+#
+#bin/sh 
+#
+########## Begin MOAB/Slurm header ##########
+#
+# Give job a reasonable name
+#MSUB -N THERMO_PROPS
+#
+# Request number of nodes and CPU cores per node for job
+#MSUB -l nodes=1:ppn=16
+#
+# Estimated wallclock time for job
+#MSUB -l walltime=24:00:00
+#
+#MSUB -l pmem=2gb
+# Write standard output and errors in same file
+#MSUB -j oe 
+#
+#MSUB -m bae
+#MSUB -M gcates@icp.uni-stuttgart.de
+########### End MOAB header ##########
+
+echo "Submit Directory:                     $MOAB_SUBMITDIR"
+echo "Working Directory:                    $PWD"
+echo "Running on host                       $HOSTNAME"
+echo "Job id:                               $MOAB_JOBID"
+echo "Job name:                             $MOAB_JOBNAME"
+echo "Number of nodes allocated to job:     $MOAB_NODECOUNT"
+echo "Number of cores allocated to job:     $MOAB_PROCCOUNT"
+echo ""
+
+module load chem/lammps/22Aug18
+
+cd $MOAB_SUBMITDIR
+
+./calc_pe.sh 0.01 0.001
+./calc_pe.sh 0.01 0.002
+./calc_pe.sh 0.01 0.003
+./calc_pe.sh 0.01 0.004
+./calc_pe.sh 0.01 0.005
+./calc_pe.sh 0.01 0.006
+./calc_pe.sh 0.01 0.007
+./calc_pe.sh 0.01 0.008
+./calc_pe.sh 0.01 0.009
+./calc_pe.sh 0.02 0.001
+./calc_pe.sh 0.02 0.002
+./calc_pe.sh 0.02 0.003
+./calc_pe.sh 0.02 0.004
+./calc_pe.sh 0.02 0.005
+./calc_pe.sh 0.02 0.006
+./calc_pe.sh 0.02 0.007
+./calc_pe.sh 0.02 0.008
+./calc_pe.sh 0.02 0.009
+./calc_pe.sh 0.03 0.001
+./calc_pe.sh 0.03 0.002
+./calc_pe.sh 0.03 0.003
+./calc_pe.sh 0.03 0.004
+./calc_pe.sh 0.03 0.005
+./calc_pe.sh 0.03 0.006
+./calc_pe.sh 0.03 0.007
+./calc_pe.sh 0.03 0.008
+./calc_pe.sh 0.03 0.009
+./calc_pe.sh 0.04 0.001
+./calc_pe.sh 0.04 0.002
+./calc_pe.sh 0.04 0.003
+./calc_pe.sh 0.04 0.004
+./calc_pe.sh 0.04 0.005
+./calc_pe.sh 0.04 0.006
+./calc_pe.sh 0.04 0.007
+./calc_pe.sh 0.04 0.008
+./calc_pe.sh 0.04 0.009
+./calc_pe.sh 0.05 0.001
+./calc_pe.sh 0.05 0.002
+./calc_pe.sh 0.05 0.003
+./calc_pe.sh 0.05 0.004
+./calc_pe.sh 0.05 0.005
+./calc_pe.sh 0.05 0.006
+./calc_pe.sh 0.05 0.007
+./calc_pe.sh 0.05 0.008
+./calc_pe.sh 0.05 0.009
+./calc_pe.sh 0.06 0.001
+./calc_pe.sh 0.06 0.002
+./calc_pe.sh 0.06 0.003
+./calc_pe.sh 0.06 0.004
+./calc_pe.sh 0.06 0.005
+./calc_pe.sh 0.06 0.006
+./calc_pe.sh 0.06 0.007
+./calc_pe.sh 0.06 0.008
+./calc_pe.sh 0.06 0.009
+./calc_pe.sh 0.07 0.001
+./calc_pe.sh 0.07 0.002
+./calc_pe.sh 0.07 0.003
+./calc_pe.sh 0.07 0.004
+./calc_pe.sh 0.07 0.005
+./calc_pe.sh 0.07 0.006
+./calc_pe.sh 0.07 0.007
+./calc_pe.sh 0.07 0.008
+./calc_pe.sh 0.07 0.009
+./calc_pe.sh 0.08 0.001
+./calc_pe.sh 0.08 0.002
+./calc_pe.sh 0.08 0.003
+./calc_pe.sh 0.08 0.004
+./calc_pe.sh 0.08 0.005
+./calc_pe.sh 0.08 0.006
+./calc_pe.sh 0.08 0.007
+./calc_pe.sh 0.08 0.008
+./calc_pe.sh 0.08 0.009
+./calc_pe.sh 0.09 0.001
+./calc_pe.sh 0.09 0.002
+./calc_pe.sh 0.09 0.003
+./calc_pe.sh 0.09 0.004
+./calc_pe.sh 0.09 0.005
+./calc_pe.sh 0.09 0.006
+./calc_pe.sh 0.09 0.007
+./calc_pe.sh 0.09 0.008
+./calc_pe.sh 0.09 0.009

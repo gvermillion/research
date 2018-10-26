@@ -1,5 +1,4 @@
 # Potential Paramters
-pair_style 	hybrid/overlay morse 5.5 buck 5.5 lj/cut/coul/long 5.5 8.5 lj/cut/tip4p/long 5 6 1 1 0.1546 8.5    
 pair_coeff    1    1 morse     		  0 	       0           0  # Be Be
 pair_coeff    1    1 buck                 0            1           -201.0 
 pair_coeff    1    1 lj/cut/coul/long	  10120.	0.413	           

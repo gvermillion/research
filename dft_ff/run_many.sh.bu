@@ -1,4 +1,0 @@
-for i in $(seq 0.1 0.01 0.14)
-	do
-		./calc_pe.sh 5 ${i} 0.01
-	done
