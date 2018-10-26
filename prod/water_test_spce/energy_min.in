@@ -5,20 +5,19 @@ clear
 units 		metal
 boundary 	p p p
 atom_style 	full
-bond_style	none
 variable	etol equal 1e-25
 variable 	ftol equal 1e-25
 variable 	maxiter equal 5000
 variable 	maxeval equal 10000
 
 #----- Create Atoms -----
-read_data 	beryl_water_100.mod
+read_data 	mod/beryl_water_025.xyz
 replicate 	1  1  1
 
 #----- Define Interatomic Potential -----
-include		potential_main.mod
-include 	potential_beryl.mod
-include 	potential_water.mod
+include		mod/potential_main.mod
+include 	mod/potential_beryl.mod
+include 	mod/potential_water.mod
 
 #------ Define Settings -----
 
