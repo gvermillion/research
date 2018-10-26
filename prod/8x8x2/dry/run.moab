@@ -4,10 +4,10 @@
 ########## Begin MOAB/Slurm header ##########
 #
 # Give job a reasonable name
-#MSUB -N THERMO_PROPS
+#MSUB -N log/THERMO_PROPS
 #
 # Request number of nodes and CPU cores per node for job
-#MSUB -l nodes=1:ppn=6
+#MSUB -l nodes=1:ppn=8
 #
 # Estimated wallclock time for job
 #MSUB -l walltime=24:00:00
@@ -32,7 +32,7 @@ echo ""
 module load chem/lammps/22Aug18
 
 cd $MOAB_SUBMITDIR
-./run.sh 2000
+./run.sh 2000 
 #
 ## au02_absorption.py is taken from the gpaw source directory
 #mpirun gpaw-python pbe400.py
