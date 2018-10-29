@@ -14,34 +14,24 @@ variable 	maxiter equal 5000
 variable 	maxeval equal 10000
 
 #----- Create Atoms -----
-read_data 	mod/beryl_water_025.xyz
+read_data 	mod/beryl.xyz
   triclinic box = (0 0 0) to (9.208 7.97436 18.376) with tilt (-4.604 0 0)
   1 by 1 by 1 MPI processor grid
   reading atoms ...
-  119 atoms
-  scanning bonds ...
-  2 = max bonds/atom
-  scanning angles ...
-  1 = max angles/atom
-  reading bonds ...
-  2 bonds
-  reading angles ...
-  1 angles
-  2 = max # of 1-2 neighbors
-  1 = max # of 1-3 neighbors
-  1 = max # of 1-4 neighbors
-  2 = max # of special neighbors
-replicate 	1  1  1
-  triclinic box = (0 0 0) to (9.208 7.97436 18.376) with tilt (-4.604 0 0)
+  116 atoms
+  0 = max # of 1-2 neighbors
+  0 = max # of 1-3 neighbors
+  0 = max # of 1-4 neighbors
+  1 = max # of special neighbors
+replicate 	2  2  2
+  triclinic box = (0 0 0) to (18.416 15.9487 36.752) with tilt (-9.208 0 0)
   1 by 1 by 1 MPI processor grid
-  119 atoms
-  2 bonds
-  1 angles
-  2 = max # of 1-2 neighbors
-  1 = max # of 1-3 neighbors
-  1 = max # of 1-4 neighbors
-  2 = max # of special neighbors
-  Time spent = 0.000365973 secs
+  928 atoms
+  0 = max # of 1-2 neighbors
+  0 = max # of 1-3 neighbors
+  0 = max # of 1-4 neighbors
+  1 = max # of special neighbors
+  Time spent = 0.00102806 secs
 
 #----- Define Interatomic Potential -----
 include		mod/potential_main.mod
@@ -99,138 +89,5 @@ include 	mod/potential_water.mod
 # Potential Paramters
 
 pair_coeff    1    5 morse     		  0. 	       0.           0.  	# Ow Be
-pair_coeff    1    5 buck                 0            1           -354.5
-pair_coeff    1    5 lj/cut/tip4p/long	  39.637	1.1435
-pair_coeff    2    5 morse     		  0 	       0           0  		# Ow Al
-pair_coeff    2    5 buck                 0            1           -554.6
-pair_coeff    2    5 lj/cut/tip4p/long	  96.854	1.0616
-pair_coeff    3    5 morse     		  0 	       0           0  		# Ow Si
-pair_coeff    3    5 buck                 0            1           -419.9
-pair_coeff    3    5 lj/cut/tip4p/long	  55.345	1.1126
-pair_coeff    4    5 morse     		  0 	       0           0  		# Ow O
-pair_coeff    4    5 buck                 0            1           -102.9
-pair_coeff    4    5 lj/cut/tip4p/long	  0.70042	1.8233
-pair_coeff    5    6 morse     		  0 	       0           0  		# Ow Hw
-pair_coeff    5    6 buck                 0            1           0
-pair_coeff    5    6 lj/cut/tip4p/long	  0.000	      0.0
-
-pair_coeff    5    5 morse     		  0 	       0           0  		# Ow Ow
-pair_coeff    5    5 buck                 0            1           -625.4
-pair_coeff    5    5 lj/cut/tip4p/long	  0.008038276	3.1589
-pair_coeff    1    6 morse     		  0 	       0           0  		# Hw Be
-pair_coeff    1    6 buck                 0            1           0
-pair_coeff    1    6 lj/cut/tip4p/long	  0.000	      0.0
-pair_coeff    2    6 morse     		  0 	       0           0  		# Hw Al
-pair_coeff    2    6 buck                 0            1           0
-pair_coeff    2    6 lj/cut/tip4p/long	  0.000	      0.0
-pair_coeff    3    6 morse     		  0 	       0           0  		# Hw Si
-pair_coeff    3    6 buck                 0            1           0
-pair_coeff    3    6 lj/cut/tip4p/long	  0.000	      0.0
-pair_coeff    4    6 morse     		  0 	       0           0  		# Hw O
-pair_coeff    4    6 buck                 0            1           0
-pair_coeff    4    6 lj/cut/tip4p/long	  0.000	      0.0
-pair_coeff    6    6 morse     		  0 	       0           0  		# Hw Hw
-pair_coeff    6    6 buck                 0            1           0
-pair_coeff    6    6 lj/cut/tip4p/long	  0.000	      0.0
-
-
-
-bond_style	harmonic
-angle_style	harmonic
-dihedral_style	none
-improper_style	none
-
-bond_coeff	1 35.756   	0.95720
-angle_coeff	1 3.969		104.520
-group		water type 5 6
-3 atoms in group water
-
-
-#------ Define Settings -----
-
-# ----- Run Minimization -----
-
-fix BRX all box/relax iso 1.013
-
-dump MIN all custom 1 min.lammpstrj id type element x y z ix iy iz
-
-minimize	1e-6 1e-6 5000 10000 # Performs actual minimization
-PPPM initialization ...
-  extracting TIP4P info from pair style
-WARNING: System is not charge neutral, net charge = -0.002 (../kspace.cpp:302)
-  using 12-bit tables for long-range coulomb (../kspace.cpp:321)
-  G vector (1/distance) = 0.208163
-  grid = 6 10 10
-  stencil order = 5
-  estimated absolute RMS force accuracy = 0.000576947
-  estimated relative force accuracy = 4.00668e-05
-  using double precision FFTs
-  3d grid and FFT values/proc = 2475 600
-Neighbor list info ...
-  update every 1 steps, delay 0 steps, check yes
-  max neighbors/atom: 2000, page size: 100000
-  master list distance cutoff = 15.6092
-  ghost atom cutoff = 15.6092
-  binsize = 7.8046, bins = 2 2 3
-  4 neighbor lists, perpetual/occasional/extra = 4 0 0
-  (1) pair morse, perpetual
-      attributes: half, newton on
-      pair build: half/bin/newton/tri
-      stencil: half/bin/3d/newton/tri
-      bin: standard
-  (2) pair buck, perpetual, copy from (1)
-      attributes: half, newton on
-      pair build: copy
-      stencil: none
-      bin: none
-  (3) pair lj/cut/coul/long, perpetual, skip from (1)
-      attributes: half, newton on
-      pair build: skip
-      stencil: none
-      bin: none
-  (4) pair lj/cut/tip4p/long, perpetual, skip from (1)
-      attributes: half, newton on
-      pair build: skip
-      stencil: none
-      bin: none
-Per MPI rank memory allocation (min/avg/max) = 11.11 | 11.11 | 11.11 Mbytes
-Step Temp Volume Cella Cellb Cellc CellGamma Pxx Pyy Pzz Pxy Pxz Pyz Lx Ly Lz Press PotEng 
-       0            0    1349.3116        9.208    9.2080001       18.376          120   -208666.87   -206120.51   -279630.46   -678.00215   -2301.8057    492.81519        9.208     7.974362       18.376   -231472.62   -2412.9425 
-     331            0    1220.2669    8.9045676    8.9045677    17.770453          120    2271.8187    3762.3523   -93033.505    22.138262    -850.2251   -133.14654    8.9045676    7.7115819    17.770453   -28999.778   -2424.9195 
-Loop time of 1.75626 on 1 procs for 331 steps with 119 atoms
-
-99.8% CPU use with 1 MPI tasks x 1 OpenMP threads
-
-Minimization stats:
-  Stopping criterion = energy tolerance
-  Energy initial, next-to-last, final = 
-        -2412.94254816     -2424.91946582     -2424.91959858
-  Force two-norm initial, final = 585.029 70.6588
-  Force max component initial, final = 584.823 68.5217
-  Final line search alpha, max atom move = 4.55666e-08 3.1223e-06
-  Iterations, force evaluations = 331 337
-
-MPI task timing breakdown:
-Section |  min time  |  avg time  |  max time  |%varavg| %total
----------------------------------------------------------------
-Pair    | 1.492      | 1.492      | 1.492      |   0.0 | 84.95
-Bond    | 0.00022078 | 0.00022078 | 0.00022078 |   0.0 |  0.01
-Kspace  | 0.075319   | 0.075319   | 0.075319   |   0.0 |  4.29
-Neigh   | 0.01703    | 0.01703    | 0.01703    |   0.0 |  0.97
-Comm    | 0.013843   | 0.013843   | 0.013843   |   0.0 |  0.79
-Output  | 0.061781   | 0.061781   | 0.061781   |   0.0 |  3.52
-Modify  | 0          | 0          | 0          |   0.0 |  0.00
-Other   |            | 0.09606    |            |       |  5.47
-
-Nlocal:    119 ave 119 max 119 min
-Histogram: 1 0 0 0 0 0 0 0 0 0
-Nghost:    8301 ave 8301 max 8301 min
-Histogram: 1 0 0 0 0 0 0 0 0 0
-Neighs:    86543 ave 86543 max 86543 min
-Histogram: 1 0 0 0 0 0 0 0 0 0
-
-Total # of neighbors = 86543
-Ave neighs/atom = 727.252
-Ave special neighs/atom = 0.0504202
-Neighbor list builds = 5
-Dangerous builds = 0
+ERROR: Numeric index is out of bounds (../pair_hybrid_overlay.cpp:41)
+Last command: pair_coeff    1    5 morse     		  0. 	       0.           0.  	# Ow Be
