@@ -1,0 +1,57 @@
+#================================================
+# FEEDBACK, job 2410795 
+#================================================
+
+Job ID                                      | 2410795
+Job name                                    | log/THERMO_PROPS
+Job state                                   | Completed
+TimeSubmit                                  | 2018-10-29  07:15:57
+TimeStart                                   | --
+TimeQueued                                  | 5:10:40     [elig.     5:10:38]
+WallTime                                    | 00:00:00 of 1:00:00:00
+Queue                                       | short
+Nodes:ppn                                   | 1:8
+Tasks                                       | 8
+PE, processor equivalent                    | 8.00
+Core hours                                  | 0.00        [PE hours  0.00]
+CPU load task max, 0-1.00                   | 0
+CPU load job avg, 0-1.00*tasks              | 0
+CPU efficiency, 0-100%                      | 0
+Memory task, MB                             | 0           [req.      2048]
+Memory job, MB                              | 0           [req.     16384] 
+Scratch task-job, GB                        | 0           [job:         0]
+Host list                                   | --
+
+#================================================
+# JOB ANALYSIS: notes, problems and solutions
+#================================================
+
+* Problem:  job was removed or not allocated on the nodes 
+            (wrong parameters or another problem, see possible messages below).
+  Solution: change job's parameters and submit the job one more time.      
+
+#================================================
+# MESSAGES associated with the job
+#================================================
+
+  No messages.
+  Change the job's parameters and try to submit the job one more time.
+
+#================================================
+# SUPPORT info
+#================================================
+
+  Wiki:
+    www.bwhpc-c5.de/wiki/index.php/Category:BwForCluster_Chemistry
+  Queuing system:
+    www.bwhpc-c5.de/wiki/index.php/Batch_Jobs_-_bwForCluster_Chemistry_Features
+  E-mail:
+    CompChem@bwhpc-c5.de  
+
+  Detailed information about the job:
+    checkjob -v 2410795
+    checkjob -v -v 2410795 
+
+Best regards,
+your JUSTUS team 
+
