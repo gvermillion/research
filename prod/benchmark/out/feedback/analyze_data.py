@@ -37,4 +37,7 @@ for line in f:
 	task_mem.append(int(tmp[32]))
 f.close()
 
-np.savetxt('dat.analyzed', np.c_[no_nodes,wait_time,wall_time,task_mem])
+
+np.savetxt('dat.analyzed.wait_time', np.c_[no_nodes,wait_time])
+np.savetxt('dat.analyzed.wall_time', np.c_[no_nodes,wall_time])
+np.savetxt('dat.analyzed.task_mem', np.c_[no_nodes,task_mem])
