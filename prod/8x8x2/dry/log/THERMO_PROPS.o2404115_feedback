@@ -1,0 +1,59 @@
+#================================================
+# FEEDBACK, job 2404115 
+#================================================
+
+Job ID                                      | 2404115
+Job name                                    | THERMO_PROPS
+Job state                                   | Completed
+TimeSubmit                                  | 2018-10-19  18:39:19
+TimeStart                                   | 2018-10-19  18:45:07
+TimeQueued                                  | 00:05:48    [elig.    00:05:43]
+WallTime                                    | 13:12:46 of 1:00:00:00
+Queue                                       | short
+Nodes:ppn                                   | 1:16
+Tasks                                       | 16
+PE, processor equivalent                    | 16.00
+Core hours                                  | 211.40      [PE hours 211.40]
+CPU load task max, 0-1.00                   | 0.06
+CPU load job avg, 0-1.00*tasks              | 0.96
+CPU efficiency, 0-100%                      | 6.00
+Memory task, MB                             | 6           [req.      2048]
+Memory job, MB                              | 96          [req.     32768] 
+Scratch task-job, GB                        | 0           [job:         0]
+Host list                                   | n1525:16
+
+#================================================
+# JOB ANALYSIS: notes, problems and solutions
+#================================================
+
+* NOTE:     per task memory usage/request ratio is under "0.01":
+            ->  6 / 2048 = 0.002930
+            ->  0.002930 < 0.01
+  Advice:   request less memory, it could force the job's start:
+            ->  total memory:       -l mem="value"  (e.g. -l mem=16GB)
+            ->  memory per process: -l pmem="value" (e.g. -l pmem=4GB)   
+
+#================================================
+# LINK to the job statistic (per node)
+#================================================
+
+  n1525 -> https://www.uni-ulm.de/kiz-soft/justus.php?g=main&ujob=U2FsdGVkX19E3w9PkP3NLd23jYoZMIDlDQ-5u2vxDG4vmRoAEdddd0gnADg81acI9VG6ezAvGYtTIPOV68XghyT9F3KDQo2kA-vtxVKax1Y.
+  
+#================================================
+# SUPPORT info
+#================================================
+
+  Wiki:
+    www.bwhpc-c5.de/wiki/index.php/Category:BwForCluster_Chemistry
+  Queuing system:
+    www.bwhpc-c5.de/wiki/index.php/Batch_Jobs_-_bwForCluster_Chemistry_Features
+  E-mail:
+    CompChem@bwhpc-c5.de  
+
+  Detailed information about the job:
+    checkjob -v 2404115
+    checkjob -v -v 2404115 
+
+Best regards,
+your JUSTUS team 
+

@@ -1,0 +1,56 @@
+#================================================
+# FEEDBACK, job 2411567 
+#================================================
+
+Job ID                                      | 2411567
+Job name                                    | PROCESSOR_BENCHMARK
+Job state                                   | Completed
+TimeSubmit                                  | 2018-10-29  20:29:10
+TimeStart                                   | 2018-10-30  02:04:53
+TimeQueued                                  | 5:35:43     [elig.     5:35:45]
+WallTime                                    | 00:00:12 of 10:00:00
+Queue                                       | short
+Nodes:ppn                                   | 1:11
+Tasks                                       | 11
+PE, processor equivalent                    | 11.00
+Core hours                                  | 0.04        [PE hours  0.04]
+CPU load task max, 0-1.00                   | 0
+CPU load job avg, 0-1.00*tasks              | 0
+CPU efficiency, 0-100%                      | 0
+Memory task, MB                             | 0           [req.       500]
+Memory job, MB                              | 0           [req.      5500] 
+Scratch task-job, GB                        | 0           [job:         0]
+Host list                                   | n1524:11
+
+#================================================
+# JOB ANALYSIS: notes, problems and solutions
+#================================================
+
+* NOTE:     walltime usage/request ratio is under "0.01":
+            ->  12 sec / 36000 sec = 0.000333 
+            ->  0.000333 < 0.01
+  Advice:   request less walltime, it could force the job's start.
+
+* NOTE:     some of the parameters are equal "0",
+            see "Memory" and "CPU load".   
+  Advice:   because of the small job's running time 
+            please ignore it.
+
+#================================================
+# SUPPORT info
+#================================================
+
+  Wiki:
+    www.bwhpc-c5.de/wiki/index.php/Category:BwForCluster_Chemistry
+  Queuing system:
+    www.bwhpc-c5.de/wiki/index.php/Batch_Jobs_-_bwForCluster_Chemistry_Features
+  E-mail:
+    CompChem@bwhpc-c5.de  
+
+  Detailed information about the job:
+    checkjob -v 2411567
+    checkjob -v -v 2411567 
+
+Best regards,
+your JUSTUS team 
+

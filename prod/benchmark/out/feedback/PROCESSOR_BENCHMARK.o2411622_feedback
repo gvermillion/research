@@ -1,0 +1,57 @@
+#================================================
+# FEEDBACK, job 2411622 
+#================================================
+
+Job ID                                      | 2411622
+Job name                                    | PROCESSOR_BENCHMARK
+Job state                                   | Completed
+TimeSubmit                                  | 2018-10-29  21:03:49
+TimeStart                                   | 2018-10-30  03:09:03
+TimeQueued                                  | 6:05:14     [elig.     6:05:10]
+WallTime                                    | 00:05:22 of 10:00:00
+Queue                                       | short
+Nodes:ppn                                   | 1:15
+Tasks                                       | 15
+PE, processor equivalent                    | 15.00
+Core hours                                  | 1.34        [PE hours  1.34]
+CPU load task max, 0-1.00                   | 0.99
+CPU load job avg, 0-1.00*tasks              | 1.73
+CPU efficiency, 0-100%                      | 11.53
+Memory task, MB                             | 45          [req.       500]
+Memory job, MB                              | 675         [req.      7500] 
+Scratch task-job, GB                        | 0           [job:         0]
+Host list                                   | n1524:15
+
+#================================================
+# JOB ANALYSIS: notes, problems and solutions
+#================================================
+
+* NOTE:     walltime usage/request ratio is under "0.01":
+            ->  322 sec / 36000 sec = 0.008944 
+            ->  0.008944 < 0.01
+  Advice:   request less walltime, it could force the job's start.
+
+#================================================
+# LINK to the job statistic (per node)
+#================================================
+
+  n1524 -> https://www.uni-ulm.de/kiz-soft/justus.php?g=main&ujob=U2FsdGVkX1897HIYqPnh1iSpW4U8O4O1voB4Vnw33YPItLSRDq-JpEHW2eOU2SIlFExlVl_CgEfLjWbNE-XyJjAL5nYaHvZCSzMJkIwClBw.
+  
+#================================================
+# SUPPORT info
+#================================================
+
+  Wiki:
+    www.bwhpc-c5.de/wiki/index.php/Category:BwForCluster_Chemistry
+  Queuing system:
+    www.bwhpc-c5.de/wiki/index.php/Batch_Jobs_-_bwForCluster_Chemistry_Features
+  E-mail:
+    CompChem@bwhpc-c5.de  
+
+  Detailed information about the job:
+    checkjob -v 2411622
+    checkjob -v -v 2411622 
+
+Best regards,
+your JUSTUS team 
+

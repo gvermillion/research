@@ -1,0 +1,48 @@
+#================================================
+# FEEDBACK, job 2411611 
+#================================================
+
+Job ID                                      | 2411611
+Job name                                    | PROCESSOR_BENCHMARK
+Job state                                   | Completed
+TimeSubmit                                  | 2018-10-29  21:03:48
+TimeStart                                   | 2018-10-30  00:27:36
+TimeQueued                                  | 3:23:48     [elig.     3:23:43]
+WallTime                                    | 00:16:27 of 10:00:00
+Queue                                       | short
+Nodes:ppn                                   | 1:4
+Tasks                                       | 4
+PE, processor equivalent                    | 4.00
+Core hours                                  | 1.10        [PE hours  1.10]
+CPU load task max, 0-1.00                   | 0.99
+CPU load job avg, 0-1.00*tasks              | 3.06
+CPU efficiency, 0-100%                      | 76.49
+Memory task, MB                             | 58          [req.       500]
+Memory job, MB                              | 232         [req.      2000] 
+Scratch task-job, GB                        | 0           [job:         0]
+Host list                                   | n1524:4
+
+#================================================
+# LINK to the job statistic (per node)
+#================================================
+
+  n1524 -> https://www.uni-ulm.de/kiz-soft/justus.php?g=main&ujob=U2FsdGVkX1_PC353RNN3Dkwx7pxwxnuWNCF4dcm29yomh280R9v0-qhD97gRr6yA30zVmRmjSRtC-LVpl3N0aWMkh08Yatl0oXphuYJ_VsM.
+  
+#================================================
+# SUPPORT info
+#================================================
+
+  Wiki:
+    www.bwhpc-c5.de/wiki/index.php/Category:BwForCluster_Chemistry
+  Queuing system:
+    www.bwhpc-c5.de/wiki/index.php/Batch_Jobs_-_bwForCluster_Chemistry_Features
+  E-mail:
+    CompChem@bwhpc-c5.de  
+
+  Detailed information about the job:
+    checkjob -v 2411611
+    checkjob -v -v 2411611 
+
+Best regards,
+your JUSTUS team 
+
