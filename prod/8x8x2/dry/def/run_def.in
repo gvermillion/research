@@ -30,5 +30,4 @@ run             100000
 unfix           2   
 variable        probeTemp delete
 
-print           " " 
-print           "All done!"
+restart		100000 restart/${probeTemp}.restart
