@@ -23,6 +23,7 @@ include         ../potential_water.mod
 
 #fix BRX all box/relax iso 1.013
 #minimize        1e-6 1e-6 5000 10000 # Performs actual minimization
-timestep        0.0005
-run     0
+timestep        0
+fix		2 water shake 0.0001 20 100  b 1 a 1 
+run    		0 
 

@@ -1,4 +1,4 @@
-for k in {7..9}
+for k in {4..6}
 	do
 		for i in {0..9}
 			do

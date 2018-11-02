@@ -5,10 +5,10 @@
 #MSUB -N log/THERMO_PROPS
 #
 # Request number of nodes and CPU cores per node for job
-#MSUB -l nodes=1:ppn=PPN
+#MSUB -l nodes=1:ppn=4
 #
 # Estimated wallclock time for job
-#MSUB -l walltime=24:00:00
+#MSUB -l walltime=01:00:00
 #
 #MSUB -l pmem=500mb
 # Write standard output and errors in same file

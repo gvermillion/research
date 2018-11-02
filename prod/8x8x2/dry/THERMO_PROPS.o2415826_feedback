@@ -1,0 +1,63 @@
+#================================================
+# FEEDBACK, job 2415826 
+#================================================
+
+Job ID                                      | 2415826
+Job name                                    | log/THERMO_PROPS
+Job state                                   | Completed
+TimeSubmit                                  | 2018-11-01  09:35:33
+TimeStart                                   | 2018-11-01  09:39:37
+TimeQueued                                  | 00:04:04    [elig.    00:03:59]
+WallTime                                    | 5:00:01 of 5:00:00
+Queue                                       | short
+Nodes:ppn                                   | 1:8
+Tasks                                       | 8
+PE, processor equivalent                    | 8.00
+Core hours                                  | 40.00       [PE hours 40.00]
+CPU load task max, 0-1.00                   | 0.99
+CPU load job avg, 0-1.00*tasks              | 7.80
+CPU efficiency, 0-100%                      | 97.56
+Memory task, MB                             | 59          [req.       500]
+Memory job, MB                              | 472         [req.      4000] 
+Scratch task-job, GB                        | 0           [job:         0]
+Host list                                   | n0202:8
+
+#================================================
+# JOB ANALYSIS: notes, problems and solutions
+#================================================
+
+* Problem:  there are some messages associated with the job (see below).
+            It could mean that the job has finished not correctly.
+  Solution: in case of error change job's parameters and 
+            submit the job one more time.       
+
+#================================================
+# MESSAGES associated with the job
+#================================================
+
+Message[0] job cancelled - job 2415826 exceeded WALLTIME usage hard limit (18001 > 18000)
+
+#================================================
+# LINK to the job statistic (per node)
+#================================================
+
+  n0202 -> https://www.uni-ulm.de/kiz-soft/justus.php?g=main&ujob=U2FsdGVkX1_EYZuZlY8-KXES4Au_C7-H12ou8qREN5a7iOO6fitRMnLd0h5lcMelmdImNSu9k7lkhCStVWWwbhc61elZIoNmROqzGJoQQxQ.
+  
+#================================================
+# SUPPORT info
+#================================================
+
+  Wiki:
+    www.bwhpc-c5.de/wiki/index.php/Category:BwForCluster_Chemistry
+  Queuing system:
+    www.bwhpc-c5.de/wiki/index.php/Batch_Jobs_-_bwForCluster_Chemistry_Features
+  E-mail:
+    CompChem@bwhpc-c5.de  
+
+  Detailed information about the job:
+    checkjob -v 2415826
+    checkjob -v -v 2415826 
+
+Best regards,
+your JUSTUS team 
+
