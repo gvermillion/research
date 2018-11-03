@@ -16,7 +16,7 @@ for directory, subdirectories, files in os.walk(root_dir):
                         f = open(directory+'/'+filename,"r")
                         data = []
                         for line in f:
-                                line = float(line[9:-1].replace(" ",""))
+                                line = float(line.split()[-1])
                                 data.append(line)
                         f.close()
                         output = open("processed_data/"+q+".dat","w")
