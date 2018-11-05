@@ -1,0 +1,48 @@
+#================================================
+# FEEDBACK, job 2416708 
+#================================================
+
+Job ID                                      | 2416708
+Job name                                    | log/THERMO_PROPS
+Job state                                   | Completed
+TimeSubmit                                  | 2018-11-03  14:19:54
+TimeStart                                   | 2018-11-03  20:54:37
+TimeQueued                                  | 6:34:43     [elig.     6:34:37]
+WallTime                                    | 10:28:49 of 18:00:00
+Queue                                       | short
+Nodes:ppn                                   | 1:16
+Tasks                                       | 16
+PE, processor equivalent                    | 16.00
+Core hours                                  | 167.68      [PE hours 167.68]
+CPU load task max, 0-1.00                   | 0.99
+CPU load job avg, 0-1.00*tasks              | 15.72
+CPU efficiency, 0-100%                      | 98.25
+Memory task, MB                             | 59          [req.       500]
+Memory job, MB                              | 944         [req.      8000] 
+Scratch task-job, GB                        | 0           [job:         0]
+Host list                                   | n0614:16
+
+#================================================
+# LINK to the job statistic (per node)
+#================================================
+
+  n0614 -> https://www.uni-ulm.de/kiz-soft/justus.php?g=main&ujob=U2FsdGVkX18CRwdLH_MoKu95LyMmrP2_zGMcz45IxxrJDhcgFyJQ3yld5b880naYKWE5NaqVzS-Y7urP4uTOfB65Ds-GwhYKX5bF7yukeQ8.
+  
+#================================================
+# SUPPORT info
+#================================================
+
+  Wiki:
+    www.bwhpc-c5.de/wiki/index.php/Category:BwForCluster_Chemistry
+  Queuing system:
+    www.bwhpc-c5.de/wiki/index.php/Batch_Jobs_-_bwForCluster_Chemistry_Features
+  E-mail:
+    CompChem@bwhpc-c5.de  
+
+  Detailed information about the job:
+    checkjob -v 2416708
+    checkjob -v -v 2416708 
+
+Best regards,
+your JUSTUS team 
+

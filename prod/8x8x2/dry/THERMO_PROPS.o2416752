@@ -1,0 +1,156 @@
+Submit Directory:                     /home/st/st_st/st_st159367/research/prod/8x8x2/dry
+Working Directory:                    /nfs/home2/st/st_st/st_st159367
+Running on host                       n1210
+Job id:                               2416752
+Job name:                             log/THERMO_PROPS
+Number of nodes allocated to job:     1
+Number of cores allocated to job:     16
+
+Loading module dependencies: 0 mpi/openmpi/1.10-gnu-4.8
+Loading module dependencies: compiler/intel/17.0 
+Loading module dependencies: numlib/mkl/2017
+
+loaded lammps successfully
+LAMMPS (22 Aug 2018)
+  using 1 OpenMP thread(s) per MPI task
+  using 1 OpenMP thread(s) per MPI task
+Reading data file ...
+  triclinic box = (0 0 0) to (9.208 7.97436 18.376) with tilt (-4.604 0 0)
+  2 by 2 by 4 MPI processor grid
+  reading atoms ...
+  116 atoms
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:   0          0          0         
+  special bond factors coul: 0          0          0         
+  0 = max # of 1-2 neighbors
+  0 = max # of 1-3 neighbors
+  0 = max # of 1-4 neighbors
+  1 = max # of special neighbors
+Replicating atoms ...
+  triclinic box = (0 0 0) to (73.664 63.7949 36.752) with tilt (-36.832 0 0)
+  2 by 4 by 2 MPI processor grid
+  14848 atoms
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:   0          0          0         
+  special bond factors coul: 0          0          0         
+  0 = max # of 1-2 neighbors
+  0 = max # of 1-3 neighbors
+  0 = max # of 1-4 neighbors
+  1 = max # of special neighbors
+  Time spent = 0.00341564 secs
+PPPM initialization ...
+WARNING: System is not charge neutral, net charge = -0.2048 (../kspace.cpp:302)
+  using 12-bit tables for long-range coulomb (../kspace.cpp:321)
+  G vector (1/distance) = 0.201681
+  grid = 36 50 24
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00105653
+  estimated relative force accuracy = 7.33721e-05
+  using double precision FFTs
+  3d grid and FFT values/proc = 9025 3600
+Neighbor list info ...
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 17
+  ghost atom cutoff = 17
+  binsize = 8.5, bins = 13 8 5
+  3 neighbor lists, perpetual/occasional/extra = 3 0 0
+  (1) pair morse, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton/tri
+      stencil: half/bin/3d/newton/tri
+      bin: standard
+  (2) pair buck, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+  (3) pair lj/cut/coul/long, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+Setting up Verlet run ...
+  Unit style    : metal
+  Current step  : 0
+  Time step     : 0.001
+Per MPI rank memory allocation (min/avg/max) = 17.92 | 17.98 | 18.04 Mbytes
+Step Temp Volume Cella Cellb Cellc CellGamma Pxx Pyy Pzz Pxy Pxz Pyz Lx Ly Lz Press PotEng 
+       0          199    172711.88       73.664    73.664001       36.752          120      -201982   -201950.03   -273519.91   -4.1707216    10.881987    4.6110695       73.664    63.794896       36.752   -225817.31   -308813.26 
+   14000    200.54954    163861.72    72.383637    72.383637    36.113209          120    17628.003    18497.366   -35637.614    1163.1619   -182.36677    -657.5496    72.383637    62.686069    36.113209    162.58486   -311535.71 
+Loop time of 509.919 on 16 procs for 14000 steps with 14848 atoms
+
+Performance: 2.372 ns/day, 10.117 hours/ns, 27.455 timesteps/s
+100.0% CPU use with 16 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 448.05     | 454.82     | 459.97     |  14.4 | 89.19
+Bond    | 0.0024933  | 0.0031881  | 0.0043853  |   0.9 |  0.00
+Kspace  | 30.776     | 35.887     | 42.595     |  50.9 |  7.04
+Neigh   | 1.2278     | 1.2555     | 1.2724     |   1.0 |  0.25
+Comm    | 5.9001     | 5.9813     | 6.027      |   1.4 |  1.17
+Output  | 6.5588e-05 | 7.4201e-05 | 0.00013434 |   0.0 |  0.00
+Modify  | 5.2115     | 8.4297     | 11.429     |  89.4 |  1.65
+Other   |            | 3.541      |            |       |  0.69
+
+Nlocal:    928 ave 941 max 913 min
+Histogram: 2 0 1 2 2 2 3 0 1 3
+Nghost:    16254.9 ave 16285 max 16221 min
+Histogram: 1 1 1 2 1 0 6 3 0 1
+Neighs:    862360 ave 875081 max 845993 min
+Histogram: 1 1 1 2 2 3 0 2 1 3
+
+Total # of neighbors = 13797759
+Ave neighs/atom = 929.267
+Ave special neighs/atom = 0
+Neighbor list builds = 35
+Dangerous builds = 0
+PPPM initialization ...
+  using 12-bit tables for long-range coulomb (../kspace.cpp:321)
+  G vector (1/distance) = 0.202542
+  grid = 36 50 24
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00100158
+  estimated relative force accuracy = 6.95559e-05
+  using double precision FFTs
+  3d grid and FFT values/proc = 9025 3600
+Setting up Verlet run ...
+  Unit style    : metal
+  Current step  : 0
+  Time step     : 0.001
+Per MPI rank memory allocation (min/avg/max) = 23.5 | 23.64 | 24.67 Mbytes
+Step Temp Volume Cella Cellb Cellc CellGamma Pxx Pyy Pzz Pxy Pxz Pyz Lx Ly Lz Press PotEng 
+       0    200.54954    163861.72    72.383637    72.383637    36.113209          120    17639.158    18508.806   -35632.034    1163.6855   -182.56185   -657.45998    72.383637    62.686069    36.113209    171.97651   -311535.55 
+ 1000000    200.19294    164082.89    72.416188    72.416188    36.129449          120    19760.446    18855.598   -36737.673    1161.6831    -714.4145   -885.00055    72.416188    62.714259    36.129449    626.12353   -311595.17 
+Loop time of 36396.6 on 16 procs for 1000000 steps with 14848 atoms
+
+Performance: 2.374 ns/day, 10.110 hours/ns, 27.475 timesteps/s
+100.0% CPU use with 16 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 31729      | 32388      | 32932      | 175.4 | 88.99
+Bond    | 0.16946    | 0.21888    | 0.29194    |   7.3 |  0.00
+Kspace  | 2186       | 2726.6     | 3380.9     | 601.8 |  7.49
+Neigh   | 4.1749     | 4.2696     | 4.3464     |   2.0 |  0.01
+Comm    | 420.5      | 423.4      | 426.84     |   9.5 |  1.16
+Output  | 8.8735e-05 | 9.7155e-05 | 0.00010043 |   0.0 |  0.00
+Modify  | 374.59     | 603.48     | 817.55     | 754.1 |  1.66
+Other   |            | 250.4      |            |       |  0.69
+
+Nlocal:    928 ave 942 max 919 min
+Histogram: 4 2 0 2 2 1 2 2 0 1
+Nghost:    16226.8 ave 16248 max 16202 min
+Histogram: 2 1 0 3 1 0 4 1 3 1
+Neighs:    860310 ave 874810 max 850955 min
+Histogram: 5 1 1 0 3 2 0 3 0 1
+
+Total # of neighbors = 13764957
+Ave neighs/atom = 927.058
+Ave special neighs/atom = 0
+Neighbor list builds = 119
+Dangerous builds = 0
+Total wall time: 10:15:06

@@ -123,3 +123,34 @@ Setting up Verlet run ...
 Per MPI rank memory allocation (min/avg/max) = 23.5 | 23.71 | 24.76 Mbytes
 Step Temp Volume Cella Cellb Cellc CellGamma Pxx Pyy Pzz Pxy Pxz Pyz Lx Ly Lz Press PotEng 
        0    107.04445    163491.13    72.329028    72.329028    36.085964          120    20765.182    16409.394   -33684.548     85.63955   -1208.3126    736.65075    72.329028    62.638776    36.085964    1163.3426   -311689.03 
+ 1000000    106.30473    163739.49    72.365634    72.365634    36.104227          120    18685.097      15703.6   -36326.867    -121.1552   -2.2658662    729.92456    72.365634    62.670478    36.104227   -646.05678   -311708.85 
+Loop time of 36855.5 on 16 procs for 1000000 steps with 14848 atoms
+
+Performance: 2.344 ns/day, 10.238 hours/ns, 27.133 timesteps/s
+100.0% CPU use with 16 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 31971      | 32400      | 33439      | 187.4 | 87.91
+Bond    | 0.16131    | 0.23876    | 0.26639    |   5.4 |  0.00
+Kspace  | 2171.5     | 3204.4     | 3627.9     | 592.4 |  8.69
+Neigh   | 0.84824    | 0.861      | 0.88032    |   0.9 |  0.00
+Comm    | 417.7      | 422.97     | 427.6      |  16.6 |  1.15
+Output  | 8.2936e-05 | 9.032e-05  | 9.6399e-05 |   0.0 |  0.00
+Modify  | 379.38     | 601.92     | 788.79     | 739.7 |  1.63
+Other   |            | 225.1      |            |       |  0.61
+
+Nlocal:    928 ave 938 max 917 min
+Histogram: 1 0 0 3 4 4 1 1 0 2
+Nghost:    16236.4 ave 16254 max 16218 min
+Histogram: 1 0 1 2 4 4 2 0 1 1
+Neighs:    863676 ave 870765 max 852233 min
+Histogram: 1 0 0 0 4 4 2 2 0 3
+
+Total # of neighbors = 13818818
+Ave neighs/atom = 930.685
+Ave special neighs/atom = 0
+Neighbor list builds = 24
+Dangerous builds = 0
+Total wall time: 10:22:52

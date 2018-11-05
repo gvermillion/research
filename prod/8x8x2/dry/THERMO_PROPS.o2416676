@@ -77,3 +77,80 @@ Setting up Verlet run ...
 Per MPI rank memory allocation (min/avg/max) = 17.92 | 17.98 | 18.04 Mbytes
 Step Temp Volume Cella Cellb Cellc CellGamma Pxx Pyy Pzz Pxy Pxz Pyz Lx Ly Lz Press PotEng 
        0          123    172711.88       73.664    73.664001       36.752          120   -202881.13   -202858.43   -274418.43   -2.0814203    6.7243894    2.8494316       73.664    63.794896       36.752   -226719.33   -308813.26 
+   14000    123.32265    163692.29     72.35868    72.358681    36.100758          120    18703.391    15543.935   -36077.806   -750.87138   -2082.9039   -1511.9355     72.35868    62.664456    36.100758   -610.16028   -311659.85 
+Loop time of 521.196 on 16 procs for 14000 steps with 14848 atoms
+
+Performance: 2.321 ns/day, 10.341 hours/ns, 26.861 timesteps/s
+100.0% CPU use with 16 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 450.82     | 456.72     | 461.82     |  17.4 | 87.63
+Bond    | 0.0020441  | 0.0032196  | 0.0043192  |   1.0 |  0.00
+Kspace  | 40.787     | 45.819     | 51.806     |  55.1 |  8.79
+Neigh   | 0.85626    | 0.87847    | 0.91986    |   2.3 |  0.17
+Comm    | 6.0023     | 6.0512     | 6.0993     |   1.2 |  1.16
+Output  | 6.6468e-05 | 7.5617e-05 | 0.00014279 |   0.0 |  0.00
+Modify  | 5.2567     | 8.4056     | 11.161     |  88.3 |  1.61
+Other   |            | 3.319      |            |       |  0.64
+
+Nlocal:    928 ave 935 max 920 min
+Histogram: 2 1 2 0 2 1 1 3 2 2
+Nghost:    16249.9 ave 16272 max 16233 min
+Histogram: 1 0 4 3 2 3 1 1 0 1
+Neighs:    863166 ave 870252 max 855449 min
+Histogram: 1 2 2 0 3 2 1 1 2 2
+
+Total # of neighbors = 13810652
+Ave neighs/atom = 930.136
+Ave special neighs/atom = 0
+Neighbor list builds = 24
+Dangerous builds = 0
+PPPM initialization ...
+  using 12-bit tables for long-range coulomb (../kspace.cpp:321)
+  G vector (1/distance) = 0.202558
+  grid = 36 50 24
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00100053
+  estimated relative force accuracy = 6.9483e-05
+  using double precision FFTs
+  3d grid and FFT values/proc = 9025 3600
+Setting up Verlet run ...
+  Unit style    : metal
+  Current step  : 0
+  Time step     : 0.001
+Per MPI rank memory allocation (min/avg/max) = 23.5 | 23.64 | 24.67 Mbytes
+Step Temp Volume Cella Cellb Cellc CellGamma Pxx Pyy Pzz Pxy Pxz Pyz Lx Ly Lz Press PotEng 
+       0    123.32265    163692.29     72.35868    72.358681    36.100758          120    18714.795    15555.787   -36071.765   -750.69322   -2082.8464   -1511.9261     72.35868    62.664456    36.100758    -600.3942   -311659.68 
+ 1000000    123.81637    163798.72    72.374358    72.374359     36.10858          120      19981.3    15592.483   -37040.859   -835.98547   -1147.5167   -596.56185    72.374358    62.678033     36.10858   -489.02512   -311694.92 
+Loop time of 36926.1 on 16 procs for 1000000 steps with 14848 atoms
+
+Performance: 2.340 ns/day, 10.257 hours/ns, 27.081 timesteps/s
+100.0% CPU use with 16 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 32074      | 32453      | 32817      | 125.5 | 87.89
+Bond    | 0.16494    | 0.23313    | 0.30964    |   7.2 |  0.00
+Kspace  | 2844.4     | 3203.9     | 3580.2     | 395.6 |  8.68
+Neigh   | 1.0652     | 1.0897     | 1.1426     |   2.2 |  0.00
+Comm    | 424.16     | 426.42     | 429.88     |   8.2 |  1.15
+Output  | 8.7526e-05 | 0.0001023  | 0.00010763 |   0.0 |  0.00
+Modify  | 380.15     | 602.03     | 800.04     | 745.3 |  1.63
+Other   |            | 239        |            |       |  0.65
+
+Nlocal:    928 ave 938 max 916 min
+Histogram: 1 0 0 2 4 4 2 2 0 1
+Nghost:    16234.3 ave 16267 max 16218 min
+Histogram: 2 5 1 3 2 0 1 1 0 1
+Neighs:    862544 ave 871337 max 851069 min
+Histogram: 1 0 0 2 3 4 1 3 1 1
+
+Total # of neighbors = 13800708
+Ave neighs/atom = 929.466
+Ave special neighs/atom = 0
+Neighbor list builds = 30
+Dangerous builds = 0
+Total wall time: 10:24:07

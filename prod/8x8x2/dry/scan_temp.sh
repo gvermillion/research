@@ -1,4 +1,4 @@
-for i in {101..200}
+for i in {401..500}
 	do
 		cp def/run_def.in run_${i}.in
 		sed -i s/'PROBETEMP'/${i}/g run_${i}.in	
