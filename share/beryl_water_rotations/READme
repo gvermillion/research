@@ -1,0 +1,12 @@
+Each file N.mod gives the positions for the beryl atoms and water molecule, with the water molecule rotated N*(pi/150). The comment to the right of each set of coordinates gives the atoms type, wherein the water atoms have a 'W' suffix. Positions are Cartesian. 
+
+dry.mod contains no water molecule
+
+This dir contains fifty rotations between [0,pi/3]
+
+Simulation box information:
+        9.2080001831         0.0000000000         0.0000000000
+       -4.6040000916         7.9743620766         0.0000000000
+        0.0000000000         0.0000000000         9.1879997253
+
+
