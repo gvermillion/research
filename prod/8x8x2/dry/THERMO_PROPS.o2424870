@@ -1,97 +1,43 @@
+Submit Directory:                     /home/st/st_st/st_st159367/research/prod/8x8x2/dry
+Working Directory:                    /nfs/home2/st/st_st/st_st159367
+Running on host                       n0330
+Job id:                               2424870
+Job name:                             log/THERMO_PROPS
+Number of nodes allocated to job:     1
+Number of cores allocated to job:     16
+
+Loading module dependencies: 0 mpi/openmpi/1.10-gnu-4.8
+Loading module dependencies: compiler/intel/17.0 
+Loading module dependencies: numlib/mkl/2017
+
+loaded lammps successfully
 LAMMPS (22 Aug 2018)
   using 1 OpenMP thread(s) per MPI task
-#nimud floating point parameter in input script or data file (../fix_nh.cpp:132)energy for Beryl
-
-#----- Initialize Simulation -----
-clear
   using 1 OpenMP thread(s) per MPI task
-units           metal
-boundary        p p p
-atom_style      full
-bond_style      none
-variable        probeTemp equal 47
-
-#----- Create Atoms -----
-read_data       mod/beryl.xyz
+Reading data file ...
   triclinic box = (0 0 0) to (9.208 7.97436 18.376) with tilt (-4.604 0 0)
   2 by 2 by 4 MPI processor grid
   reading atoms ...
   116 atoms
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:   0          0          0         
+  special bond factors coul: 0          0          0         
   0 = max # of 1-2 neighbors
   0 = max # of 1-3 neighbors
   0 = max # of 1-4 neighbors
   1 = max # of special neighbors
-replicate       8 8 2
+Replicating atoms ...
   triclinic box = (0 0 0) to (73.664 63.7949 36.752) with tilt (-36.832 0 0)
   2 by 4 by 2 MPI processor grid
   14848 atoms
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:   0          0          0         
+  special bond factors coul: 0          0          0         
   0 = max # of 1-2 neighbors
   0 = max # of 1-3 neighbors
   0 = max # of 1-4 neighbors
   1 = max # of special neighbors
   Time spent = 0.00322096 secs
-
-#----- Define Interatomic Potential -----
-include         mod/potential_main.mod
-kspace_style 	pppm 1.0e-4
-
-# Neighbor Style
-neighbor	2.0 bin
-neigh_modify	delay 0 every 1 check yes
-
-# Setup Output
-thermo_style	custom	step temp vol cella cellb cellc cellgamma pxx pyy pzz pxy pxz pyz lx ly lz press pe #c_eatoms
-thermo_modify	norm no
-variable 	myVol equal vol
-variable	myCella equal cella
-variable	myCellb equal cellb
-variable	myCellc equal cellc
-variable	myCellgamma equal cellgamma
-include         mod/potential_beryl.mod
-# Potential Paramters
-pair_style 	hybrid/overlay morse 5.5 buck 5.5 lj/cut/coul/long 5.5 15.0
-pair_coeff    1    1 morse     		  0 	       0           0  # Be Be
-pair_coeff    1    1 buck                 0            1           -201.0
-pair_coeff    1    1 lj/cut/coul/long	  10120.	0.413
-pair_coeff    1    2 morse     		  0 	       0           0  # Be Al
-pair_coeff    1    2 buck                 0            1           0
-pair_coeff    1    2 lj/cut/coul/long	  0	       0
-pair_coeff    1    3 morse     		  0 	       0           0  # Al Si
-pair_coeff    1    3 buck                 0            1           0
-pair_coeff    1    3 lj/cut/coul/long	  0	       0
-pair_coeff    1    4 morse 		  0.239919     2.527420    1.815405	#Be O
-pair_coeff    1    4 buck                 0.000000     1.000000   -46.00000
-pair_coeff    1    4 lj/cut/coul/long     529.000      0.528
-pair_coeff    2    2 morse     		  0 	       0           0  # Al Al
-pair_coeff    2    2 buck                 0            1           -492.
-pair_coeff    2    2 lj/cut/coul/long	  60423		0.356
-pair_coeff    2    3 morse     		  0 	       0           0  # Al si
-pair_coeff    2    3 buck                 0            1           0
-pair_coeff    2    3 lj/cut/coul/long	  0	       0
-pair_coeff    2    4 morse 		  0.361581     1.900442    2.164818	#Al O
-pair_coeff    2    4 buck                 0.000000     1.000000   -71.5
-pair_coeff    2    4 lj/cut/coul/long     1420.0	0.482
-pair_coeff    3    3 morse     		  0 	       0           0  # Si Si
-pair_coeff    3    3 buck                 0            1           -282.
-pair_coeff    3    3 lj/cut/coul/long	  19730		0.391
-pair_coeff    3    4 morse 		  0.340554     2.006700    2.100000	#Si O
-pair_coeff    3    4 buck                 0.000000     1.000000   -60.5
-pair_coeff    3    4 lj/cut/coul/long     916.		0.504
-pair_coeff    4    4 morse     		  0.042395     1.379316    3.618701  # O O
-pair_coeff    4    4 buck                 0.000000     1.000000   -16.7
-pair_coeff    4    4 lj/cut/coul/long	  3.16		1.05
-#------ Define Settings -----
-
-# ----- Run Minimization -----
-reset_timestep  0
-timestep        0.001
-velocity        all create ${probeTemp} 87287 loop geom
-velocity        all create 47 87287 loop geom
-fix             1 all npt temp ${probeTemp} ${probeTemp} 0.1 aniso 1.013 1.013 5.0
-fix             1 all npt temp 47 ${probeTemp} 0.1 aniso 1.013 1.013 5.0
-fix             1 all npt temp 47 47 0.1 aniso 1.013 1.013 5.0
-
-run             14000 # Warmup
 PPPM initialization ...
 WARNING: System is not charge neutral, net charge = -0.2048 (../kspace.cpp:302)
   using 12-bit tables for long-range coulomb (../kspace.cpp:321)
@@ -124,6 +70,10 @@ Neighbor list info ...
       pair build: copy
       stencil: none
       bin: none
+Setting up Verlet run ...
+  Unit style    : metal
+  Current step  : 0
+  Time step     : 0.001
 Per MPI rank memory allocation (min/avg/max) = 17.92 | 17.98 | 18.04 Mbytes
 Step Temp Volume Cella Cellb Cellc CellGamma Pxx Pyy Pzz Pxy Pxz Pyz Lx Ly Lz Press PotEng 
        0           47    172711.88       73.664    73.664001       36.752          120   -203780.26   -203766.83   -275316.94 0.0078809581    2.5667914    1.0877938       73.664    63.794896       36.752   -227621.34   -308813.26 
@@ -157,3 +107,19 @@ Ave neighs/atom = 932.789
 Ave special neighs/atom = 0
 Neighbor list builds = 24
 Dangerous builds = 0
+PPPM initialization ...
+  using 12-bit tables for long-range coulomb (../kspace.cpp:321)
+  G vector (1/distance) = 0.202432
+  grid = 36 50 24
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00101387
+  estimated relative force accuracy = 7.04093e-05
+  using double precision FFTs
+  3d grid and FFT values/proc = 9025 3600
+Setting up Verlet run ...
+  Unit style    : metal
+  Current step  : 0
+  Time step     : 0.001
+Per MPI rank memory allocation (min/avg/max) = 23.5 | 23.57 | 23.62 Mbytes
+Step Temp Volume Cella Cellb Cellc CellGamma Pxx Pyy Pzz Pxy Pxz Pyz Lx Ly Lz Press PotEng 
+       0    47.566197    163246.81    72.945299    72.993073    35.402597          120    143.87079    91.774977   -225.68406    1018.1307   -1325.2983    1716.3149    72.945299    63.213856    35.402597    3.3205697   -311827.09 
