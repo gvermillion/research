@@ -1,7 +1,8 @@
 import numpy as np
 import sys,os
 
-for i in np.arange(50):
+num_meas = int(sys.argv[1]) # Number of measurements between 0:2pi
+for i in np.arange(num_meas):
 	dest_xyz = "tmp/beryl_wet_{}.xyz".format(i)
 	os.system("cp beryl_wet_def.xyz {}".format(dest_xyz))
 	with open("water_pos/{}.xyz".format(i)) as f:

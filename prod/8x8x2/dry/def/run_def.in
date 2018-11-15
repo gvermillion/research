@@ -23,7 +23,7 @@ timestep        0.001
 velocity        all create ${probeTemp} 87287 loop geom
 fix             1 all npt temp ${probeTemp} ${probeTemp} 0.1 aniso 1.013 1.013 5.0 
 
-run             14000 # Warmup
+run             20000 # Warmup
 reset_timestep  0
 fix             2 all ave/time 1 1 50 c_thermo_temp c_thermo_pe c_thermo_press v_myVol v_myCella v_myCellb v_myCellc v_myCellgamma c_thermo_press[*] file data/current_run/cp_rawTemp${probeTemp}.dat 
 run             1000000 
