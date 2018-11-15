@@ -15,4 +15,4 @@ calc = GPAW(xc='PBE',kpts={'density':float(k_dens),'gamma':True},h=0.2,txt="/lus
 beryl.set_calculator(calc)
 #os.system("echo {}".format(i))
 energy = beryl.get_potential_energy()
-calc.write('data/current_run/{}.gpw'.format(i), mode='all')
+calc.write('/lustre/lxfs/work/ws/st_st159367-dft_calcs-0/current_run/{}.gpw'.format(i), mode='all')
