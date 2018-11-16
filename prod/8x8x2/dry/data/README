@@ -1,11 +1,19 @@
 ***As of commit 05 Nov 18, run_01/ .. run_10/ have been removed. These have preliminary testing and benchmarks, and can be accessed by checking out that commit***
 
-run_11/
+run_12/
 *******************
 run		1000000
 sample		50
 epsilon		1
 range		(10,2000)
+Changed barostat to anisotropic
+
+run_11/
+*******************
+run		1000000
+sample		50
+epsilon		1
+range		(10,400)
 
 
 run_equil/

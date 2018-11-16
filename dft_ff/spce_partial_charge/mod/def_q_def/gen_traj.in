@@ -1,0 +1,26 @@
+
+#----- Initialize Simulation -----
+clear
+atom_style      full
+bond_style      none
+variable        etol equal 1e-25
+variable        ftol equal 1e-25
+variable        maxiter equal 5000
+variable        maxeval equal 10000
+variable        probeTemp equal PROBETEMP
+
+#----- Create Atoms -----
+read_data       beryl_water_0_q_def.mod
+replicate       1 1 1   
+compute         pe all pe       
+thermo_style    custom step pe
+
+#----- Define Interatomic Potential -----
+include         ../potential_main.mod
+include         ../potential_beryl.mod
+include         ../potential_water.mod
+
+dump XYZ all xtc 1 traj.xyz 
+timestep        0.0005
+run     1
+

@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import sys,os
 import pickle
 import csv
@@ -22,11 +22,12 @@ def readFile(filename):
 		cellbs = []
 		cellcs = []
 		cellgammas = []
+		press_tensors = []
 		with open(filename,'r') as file:
 			i = 1
 			for row in file:
 				if i > 2:
-					t, temp, pe, press, vol, cella, cellb, cellc, cellgamma = row.split()
+					t, temp, pe, press, vol, cella, cellb, cellc, cellgamma, press_tensor = row.split()
 					ts.append(float(t))
 					temps.append(float(temp))
 					pes.append(float(pe))
@@ -36,6 +37,7 @@ def readFile(filename):
 					cellbs.append(float(cellb))
 					cellcs.append(float(cellc))
 					cellgammas.append(float(cellgamma))
+					press_tensors.append([float(i) for i in press_tensor])
 				i += 1
 		ts = np.asarray(ts)
 		temps = np.asarray(temps)
@@ -46,10 +48,11 @@ def readFile(filename):
 		cellbs = np.asarray(cellbs)	
 		cellcs = np.asarray(cellcs)	
 		cellgammas = np.asarray(cellgammas)	
+		press_tensors = np.asarray(press_tensors)
 	else:
     		print("ERROR: Files not found.")
     		sys.exit(3)
-	return ts, temps, pes, presss, vols, cellas, cellbs, cellcs, cellgammas 
+	return ts, temps, pes, presss, vols, cellas, cellbs, cellcs, cellgammas, press_tensors 
 
 def writeToFile(data):
 	with open("{}/analyzedData.dat".format(data_dir), "wb") as dataFile:
@@ -119,7 +122,7 @@ for root, dirs, files in os.walk(data_dir):
 		if start>4: # If a valid data file name
 			print("Processing data for: {}".format(fil))
 			targetTemp = float(fil[start:end])
-			ts, temps, pes, presss, vols, cellas, cellbs, cellcs, cellgammas = readFile("{}/{}".format(data_dir,fil))
+			ts, temps, pes, presss, vols, cellas, cellbs, cellcs, cellgammas, press_tensors = readFile("{}/{}".format(data_dir,fil))
 			tempData = performBinningAnalysis(temps)
 			peData = performBinningAnalysis(pes)
 			pressData = performBinningAnalysis(presss)
@@ -128,8 +131,9 @@ for root, dirs, files in os.walk(data_dir):
 			cellbData = performBinningAnalysis(cellbs)
 			cellcData = performBinningAnalysis(cellcs)
 			cellgammaData = performBinningAnalysis(cellgammas)
+			press_tensorsData = performBinningAnalysis(press_tensors)
 			#writeToFile([targetTemp,tempData,peData,pressData,volData,cellaData,cellbData,cellcData,cellgammaData])
-			data.append([targetTemp,tempData,peData,pressData,volData,cellaData,cellbData,cellcData,cellgammaData,temps,pes,presss,vols])
+			data.append([targetTemp,tempData,peData,pressData,volData,cellaData,cellbData,cellcData,cellgammaData,temps,pes,presss,vols,press_tensorsData])
 			
 		else:
 			print("Skip")

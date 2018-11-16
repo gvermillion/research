@@ -1,0 +1,5 @@
+
+
+gen_coord.py N: 	Takes one integer input N. Determines water coordinates for N rotations between [0,2*pi]. Outputs to water_pos/
+make_inputs.py N:	Takes one integer input N. Reads positions in water_pos/ and places them in appropriate spots in beryl_wet_def.xyz. Outputs to tmp/. NOTE: N must match N used in gen_coord.py
+get_scwf.py K:		Takes one integer input K. Determins self-consistent wave function for configuration tmp/beryl_wet_K.xyz. Outputs to /lustre/lxfs/work/ws/st_st159367-dft_calcs-0/current_run/ 
