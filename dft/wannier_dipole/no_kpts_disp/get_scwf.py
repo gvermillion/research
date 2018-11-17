@@ -13,7 +13,7 @@ dest_xyz = "tmp/beryl_wet_{}.xyz".format(i)
 
 beryl = read(dest_xyz)
 calc = GPAW(xc='PBE',h=0.2,txt="/lustre/lxfs/work/ws/st_st159367-dft_calcs-0/current_run/no_kpts_disp_{}.calc".format(i)) 
-d3 = DFTD3()
+d3 = DFTD3(dft=calc)
 beryl.set_calculator(d3)
 #os.system("echo {}".format(i))
 energy = beryl.get_potential_energy()
