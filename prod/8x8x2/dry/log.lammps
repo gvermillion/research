@@ -1,0 +1,209 @@
+LAMMPS (22 Aug 2018)
+  using 1 OpenMP thread(s) per MPI task
+#nimud floating point parameter in input script or data file (../fix_nh.cpp:132)energy for Beryl
+
+#----- Initialize Simulation -----
+clear
+  using 1 OpenMP thread(s) per MPI task
+units           metal
+boundary        p p p
+atom_style      full
+bond_style      none
+variable        probeTemp equal 399
+
+#----- Create Atoms -----
+read_data       mod/beryl.xyz
+  triclinic box = (0 0 0) to (9.208 7.97436 18.376) with tilt (-4.604 0 0)
+  2 by 2 by 4 MPI processor grid
+  reading atoms ...
+  116 atoms
+  0 = max # of 1-2 neighbors
+  0 = max # of 1-3 neighbors
+  0 = max # of 1-4 neighbors
+  1 = max # of special neighbors
+replicate       8 8 2
+  triclinic box = (0 0 0) to (73.664 63.7949 36.752) with tilt (-36.832 0 0)
+  2 by 4 by 2 MPI processor grid
+  14848 atoms
+  0 = max # of 1-2 neighbors
+  0 = max # of 1-3 neighbors
+  0 = max # of 1-4 neighbors
+  1 = max # of special neighbors
+  Time spent = 0.00315224 secs
+
+#----- Define Interatomic Potential -----
+include         mod/potential_main.mod
+kspace_style 	pppm 1.0e-4
+
+# Neighbor Style
+neighbor	2.0 bin
+neigh_modify	delay 0 every 1 check yes
+
+# Setup Output
+thermo_style	custom	step temp vol cella cellb cellc cellgamma pxx pyy pzz pxy pxz pyz lx ly lz press pe #c_eatoms
+thermo_modify	norm no
+variable 	myVol equal vol
+variable	myCella equal cella
+variable	myCellb equal cellb
+variable	myCellc equal cellc
+variable	myCellgamma equal cellgamma
+include         mod/potential_beryl.mod
+# Potential Paramters
+pair_style 	hybrid/overlay morse 5.5 buck 5.5 lj/cut/coul/long 5.5 15.0
+pair_coeff    1    1 morse     		  0 	       0           0  # Be Be
+pair_coeff    1    1 buck                 0            1           -201.0
+pair_coeff    1    1 lj/cut/coul/long	  10120.	0.413
+pair_coeff    1    2 morse     		  0 	       0           0  # Be Al
+pair_coeff    1    2 buck                 0            1           0
+pair_coeff    1    2 lj/cut/coul/long	  0	       0
+pair_coeff    1    3 morse     		  0 	       0           0  # Al Si
+pair_coeff    1    3 buck                 0            1           0
+pair_coeff    1    3 lj/cut/coul/long	  0	       0
+pair_coeff    1    4 morse 		  0.239919     2.527420    1.815405	#Be O
+pair_coeff    1    4 buck                 0.000000     1.000000   -46.00000
+pair_coeff    1    4 lj/cut/coul/long     529.000      0.528
+pair_coeff    2    2 morse     		  0 	       0           0  # Al Al
+pair_coeff    2    2 buck                 0            1           -492.
+pair_coeff    2    2 lj/cut/coul/long	  60423		0.356
+pair_coeff    2    3 morse     		  0 	       0           0  # Al si
+pair_coeff    2    3 buck                 0            1           0
+pair_coeff    2    3 lj/cut/coul/long	  0	       0
+pair_coeff    2    4 morse 		  0.361581     1.900442    2.164818	#Al O
+pair_coeff    2    4 buck                 0.000000     1.000000   -71.5
+pair_coeff    2    4 lj/cut/coul/long     1420.0	0.482
+pair_coeff    3    3 morse     		  0 	       0           0  # Si Si
+pair_coeff    3    3 buck                 0            1           -282.
+pair_coeff    3    3 lj/cut/coul/long	  19730		0.391
+pair_coeff    3    4 morse 		  0.340554     2.006700    2.100000	#Si O
+pair_coeff    3    4 buck                 0.000000     1.000000   -60.5
+pair_coeff    3    4 lj/cut/coul/long     916.		0.504
+pair_coeff    4    4 morse     		  0.042395     1.379316    3.618701  # O O
+pair_coeff    4    4 buck                 0.000000     1.000000   -16.7
+pair_coeff    4    4 lj/cut/coul/long	  3.16		1.05
+#------ Define Settings -----
+
+# ----- Run Minimization -----
+reset_timestep  0
+timestep        0.001
+velocity        all create ${probeTemp} 87287 loop geom
+velocity        all create 399 87287 loop geom
+fix             1 all npt temp ${probeTemp} ${probeTemp} 0.1 aniso 1.013 1.013 5.0
+fix             1 all npt temp 399 ${probeTemp} 0.1 aniso 1.013 1.013 5.0
+fix             1 all npt temp 399 399 0.1 aniso 1.013 1.013 5.0
+
+run             20000 # Warmup
+PPPM initialization ...
+WARNING: System is not charge neutral, net charge = -0.2048 (../kspace.cpp:302)
+  using 12-bit tables for long-range coulomb (../kspace.cpp:321)
+  G vector (1/distance) = 0.201681
+  grid = 36 50 24
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00105653
+  estimated relative force accuracy = 7.33721e-05
+  using double precision FFTs
+  3d grid and FFT values/proc = 9025 3600
+Neighbor list info ...
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 17
+  ghost atom cutoff = 17
+  binsize = 8.5, bins = 13 8 5
+  3 neighbor lists, perpetual/occasional/extra = 3 0 0
+  (1) pair morse, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton/tri
+      stencil: half/bin/3d/newton/tri
+      bin: standard
+  (2) pair buck, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+  (3) pair lj/cut/coul/long, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+Per MPI rank memory allocation (min/avg/max) = 17.92 | 17.98 | 18.04 Mbytes
+Step Temp Volume Cella Cellb Cellc CellGamma Pxx Pyy Pzz Pxy Pxz Pyz Lx Ly Lz Press PotEng 
+       0          395    172711.88       73.664    73.664001       36.752          120    -199663.2   -199607.31   -271202.69   -9.5589196    21.604214    9.1542408       73.664    63.794896       36.752   -223491.06   -308813.26 
+   20000    394.59753    164581.31    73.279328    73.266684    35.396626          120   -531.70572    515.55408   -178.91616   -931.80358   -260.84537      3519.77    73.279328     63.45081    35.396626   -65.022601   -311261.93 
+Loop time of 740.981 on 16 procs for 20000 steps with 14848 atoms
+
+Performance: 2.332 ns/day, 10.291 hours/ns, 26.991 timesteps/s
+100.0% CPU use with 16 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 637.13     | 646.69     | 659.95     |  24.2 | 87.27
+Bond    | 0.0037074  | 0.0044415  | 0.0057375  |   0.8 |  0.00
+Kspace  | 51.935     | 65.371     | 74.972     |  76.4 |  8.82
+Neigh   | 3.527      | 3.6085     | 3.8639     |   3.8 |  0.49
+Comm    | 8.4756     | 8.5545     | 8.6599     |   2.0 |  1.15
+Output  | 7.5488e-05 | 8.2437e-05 | 0.00013955 |   0.0 |  0.00
+Modify  | 7.7211     | 12.156     | 15.994     | 104.5 |  1.64
+Other   |            | 4.6        |            |       |  0.62
+
+Nlocal:    928 ave 937 max 917 min
+Histogram: 1 1 2 1 0 1 5 2 1 2
+Nghost:    16259.6 ave 16279 max 16237 min
+Histogram: 1 0 0 4 4 2 1 0 2 2
+Neighs:    859118 ave 868413 max 849047 min
+Histogram: 2 0 1 2 2 2 4 0 2 1
+
+Total # of neighbors = 13745890
+Ave neighs/atom = 925.774
+Ave special neighs/atom = 0
+Neighbor list builds = 100
+Dangerous builds = 0
+reset_timestep  0
+fix             2 all ave/time 1 1 50 c_thermo_temp c_thermo_pe c_thermo_press v_myVol v_myCella v_myCellb v_myCellc v_myCellgamma c_thermo_press[*] file data/current_run/cp_rawTemp${probeTemp}.dat
+fix             2 all ave/time 1 1 50 c_thermo_temp c_thermo_pe c_thermo_press v_myVol v_myCella v_myCellb v_myCellc v_myCellgamma c_thermo_press[*] file data/current_run/cp_rawTemp395.dat
+run             1000000
+PPPM initialization ...
+  using 12-bit tables for long-range coulomb (../kspace.cpp:321)
+  G vector (1/distance) = 0.202255
+  grid = 36 50 24
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00102657
+  estimated relative force accuracy = 7.12914e-05
+  using double precision FFTs
+  3d grid and FFT values/proc = 9025 3600
+Per MPI rank memory allocation (min/avg/max) = 23.5 | 23.56 | 23.62 Mbytes
+Step Temp Volume Cella Cellb Cellc CellGamma Pxx Pyy Pzz Pxy Pxz Pyz Lx Ly Lz Press PotEng 
+       0    394.59753    164581.31    73.279328    73.266684    35.396626          120   -525.40353    522.35273    -170.6192   -931.56703    -260.8748    3519.8648    73.279328     63.45081    35.396626   -57.889999   -311261.81 
+ 1000000    395.14728    164857.71    73.462774    73.367392    35.318985          120   -409.68906   -1311.6853   -517.56295   -138.28221   -2556.6812     1510.247    73.462774    63.538025    35.318985   -746.31244   -311346.62 
+Loop time of 39600.1 on 16 procs for 1000000 steps with 14848 atoms
+
+Performance: 2.182 ns/day, 11.000 hours/ns, 25.252 timesteps/s
+100.0% CPU use with 16 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 32122      | 33409      | 35219      | 529.4 | 84.37
+Bond    | 0.17513    | 0.21789    | 0.2901     |   6.6 |  0.00
+Kspace  | 2985.5     | 4797.6     | 6081.7     |1400.2 | 12.12
+Neigh   | 115.8      | 119.73     | 129.09     |  32.9 |  0.30
+Comm    | 419.72     | 425.67     | 428.84     |  12.6 |  1.07
+Output  | 7.3358e-05 | 8.265e-05  | 8.5146e-05 |   0.0 |  0.00
+Modify  | 387.73     | 611.71     | 803.02     | 737.4 |  1.54
+Other   |            | 236.5      |            |       |  0.60
+
+Nlocal:    928 ave 942 max 918 min
+Histogram: 3 1 2 2 2 1 1 2 1 1
+Nghost:    16274.6 ave 16319 max 16240 min
+Histogram: 1 1 2 2 4 4 0 1 0 1
+Neighs:    858194 ave 872264 max 847885 min
+Histogram: 2 3 0 4 1 2 1 2 0 1
+
+Total # of neighbors = 13731101
+Ave neighs/atom = 924.778
+Ave special neighs/atom = 0
+Neighbor list builds = 3202
+Dangerous builds = 0
+unfix           2
+variable        probeTemp delete
+
+Total wall time: 11:12:21
