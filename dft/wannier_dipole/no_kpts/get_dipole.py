@@ -29,11 +29,11 @@ def minimum_image(r_i,r_j,atoms):
 	
 	return r_ij
 	
-print("Working on {}".format(seed))
-print("\tLoading SCWF")
+#print("Working on {}".format(seed))
+#print("\tLoading SCWF")
 atoms, calc = restart(scwf,txt=None)
 
-print("\tDeterminingg MLWF")
+#print("\tDeterminingg MLWF")
 path_to_mlwf = path_to_data+prefix+seed+'.wan'
 if os.path.isfile(path_to_mlwf):
 	#print("{} does exist".format(path_to_mlwf))
@@ -44,7 +44,7 @@ else:
 	w.localize()
 	w.save(path_to_mlwf)
 
-print("\tDetermining Centers")
+#print("\tDetermining Centers")
 O_pos = np.array([0., 0., 2.296999931]) # Oxygen atom position is constant through rotation
 centers = w.get_centers()
 
@@ -57,7 +57,18 @@ select = list(np.sort(dist_O_centers))[0:4]
 closest = [distances.index(select[i]) for i in np.arange(len(select))] 
 atoms.extend(atoms_centers[closest])
 
-# Write file that includes all Wannier centers
-path_to_center_verification = path_to_data+'center_verification/'+prefix+seed+'TEST.xyz'
+# Write file that includes four closest Wannier centers
+path_to_center_verification = path_to_data+'center_verification/'+prefix+seed+'.xyz'
 write(path_to_center_verification,atoms)
 
+#print("\tCalculating Dipole")
+water = atoms[58:].copy()
+electron_pos = water.get_positions(wrap=True)[3:]
+water_pos = water.get_positions(wrap=True)[0:3]
+pos_term = sum(np.array([water_pos[0]*2,water_pos[1],water_pos[2]])) # Oxygen ion charge +2, Hydrogen ion charge +1
+neg_term = -2*sum(electron_pos)
+
+dipole = pos_term+neg_term
+dipole_norm = np.linalg.norm(dipole)
+
+print(dipole_norm)
