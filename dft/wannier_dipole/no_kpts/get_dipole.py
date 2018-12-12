@@ -52,6 +52,7 @@ atoms_centers = atoms.copy()
 cat = Atoms('X'*len(centers),positions=centers)
 atoms_centers.extend(cat)
 distances = list(atoms_centers.get_all_distances(mic=True)[58])
+distances_vectors = list(atoms_centers.get_all_distances(mic=True,vector=True)[58])
 dist_O_centers = atoms_centers.get_all_distances(mic=True)[58][61:]
 select = list(np.sort(dist_O_centers))[0:4] 
 closest = [distances.index(select[i]) for i in np.arange(len(select))] 
@@ -62,10 +63,12 @@ path_to_center_verification = path_to_data+'center_verification/'+prefix+seed+'.
 write(path_to_center_verification,atoms)
 
 #print("\tCalculating Dipole")
-water = atoms[58:].copy()
-electron_pos = water.get_positions(wrap=True)[3:]
-water_pos = water.get_positions(wrap=True)[0:3]
-pos_term = sum(np.array([water_pos[0]*2,water_pos[1],water_pos[2]])) # Oxygen ion charge +2, Hydrogen ion charge +1
+#water = atoms[58:].copy()
+#electron_pos = water.get_positions(wrap=True)[3:]
+#water_pos = water.get_positions(wrap=True)[0:3]
+electron_pos = np.array([distances_vectors[i] for i in closest])
+water_pos = np.array([distances_vectors[i] for i in range(58,61)])
+pos_term = sum(np.array([water_pos[0]*6,water_pos[1],water_pos[2]])) # Oxygen ion charge +2, Hydrogen ion charge +1
 neg_term = -2*sum(electron_pos)
 
 dipole = pos_term+neg_term
