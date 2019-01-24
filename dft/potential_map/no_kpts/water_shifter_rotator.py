@@ -60,9 +60,9 @@ else:
 	else:
 		sys.exit("ERROR: number of arguments")
 
-H_1[0] += shift 
-H_2[0] += shift 
-O[0] += shift
+H_1[2] += shift 
+H_2[2] += shift 
+O[2] += shift
 
 for i in range(3):
   for j in range(3):

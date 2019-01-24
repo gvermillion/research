@@ -55,9 +55,9 @@ alpha = 90
 beta = 90
 gamma = 120
 
-r = get_fractional_to_cartesian_matrix(a,b,c,alpha,beta,gamma)
-
-frac = np.array([0,0,0])
-cart = r*frac
-
-print(cart)
+#r = get_fractional_to_cartesian_matrix(a,b,c,alpha,beta,gamma)
+#
+#frac = np.array([0,0,0])
+#cart = r*frac
+#
+#print(cart)

@@ -7,5 +7,5 @@ prod/8x8x2/dry/feedback/
 prod/8x8x2/dry/out/
 prod/8x8x2/dry/tmp/
 prod/8x8x2/dry/data/run_12/analyzed/
-dft/wannier_dipole/data
-dft/wannier_dipole/no_kpts/data
+dft/potential_map/data
+dft/potential_map/no_kpts/data
