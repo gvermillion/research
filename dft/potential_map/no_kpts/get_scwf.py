@@ -7,7 +7,6 @@ from ase.visualize import view
 import sys,os
 
 i = sys.argv[1]
-k_dens = "3.0"
 dest_xyz = "tmp/beryl_wet_{}.xyz".format(i)
 
 beryl = read(dest_xyz)
